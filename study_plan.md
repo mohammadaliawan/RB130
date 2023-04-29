@@ -24,6 +24,7 @@
 
 ## Plan for assessmennt Prep
 
+29-Apr to 4-May
 - Lesson 1: Blocks
   - All assignments again
   - Important terms and definitions
@@ -37,6 +38,7 @@
   - [] Medium 1
 - Prepare Study Guide
 
+5-May to 9-May
 - Lesson 2: Testing
   - All assignments again
   - Important terms and definitions
@@ -49,4 +51,13 @@
   - [] Medium 2: Testing
 - Prepare Study Guide
 
-- SPOT Wiki Material
+
+- Regex Book
+- Ruby Challenges
+  - [] Easy 1
+  - [] Medium 
+
+- Assessment Preparation
+  - SPOT wiki questions
+  - Answer All questions prepared during 2nd Pass
+  - Do Coding Challenges Again
