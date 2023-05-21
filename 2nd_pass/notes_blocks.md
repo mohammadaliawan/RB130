@@ -22,7 +22,9 @@ All these different types of closures can be passed around as a 'chunk of code' 
 
 ### What is meant by binding of a closure?
 
-A closures binding is set of variable and method names i.e its surrounding artifacts, that it retains references to when its passed around.
+A closures binding is the set of variable and method names i.e its surrounding artifacts, that it retains references to when its passed around.
+
+## Calling Methods With Blocks
 
 ### What are the three main components in the below code?
 
@@ -53,6 +55,7 @@ In the above example the `do..end` is actually being passed to to the `Array#eac
 The answer lies in how the method is implemented. The code in the block is not the method implementation.
 It has nothing to do with the method implementation. The entire block is passed to the method as an argument just like any other argument. It is upto the method implementation to decide what to do with the block, execute it or ignore it.
 
+## Writing Methods that take Blocks
 
 ### Why does the below code not raise an error?
 
@@ -90,3 +93,28 @@ When a method is invoked that contains the `yield` keyword for yielding to the b
 ### How can we define a method that does not raise an error whether a block is passed to it or not?
 
 We can use the `Kernel#block_given?` method in an `if` conditional. `block_given?` method returns `true` only if a block is passed to the method upon invocation. 
+
+### Why does the below code not raise an error?
+
+```ruby
+def echo_with_yield(str)
+  yield if block_given?
+  str
+end
+
+echo_with_yield("Hello")
+```
+
+
+### What is the sequence of code execution in the below code? Explain with line numbers. Also, differentiate between what consitutes the method implementation and what constitutes the method invocation.
+
+```ruby
+def say(words)
+  yield if block_given?
+  puts "> " + words
+end
+
+say("hi there") do
+  system 'clear'
+end
+```

@@ -1,19 +1,21 @@
 # def hello
-#   "Hello!"
+#   "hello!"
 # end
 
-# p hello {puts "hi"}
+# p hello { puts "hi"}
 
-# def echo(str)
-#   puts str
+# def echo_with_yield(str)
+#   yield if block_given?
+#   str
 # end
 
-# echo("Hello") { puts "Goodbye!" }
+# p echo_with_yield("Hello!") 
 
-def echo_with_yield(str)
+def say(words)
   yield if block_given?
-  str
+  puts "> " + words
 end
 
-p echo_with_yield("Hello") { puts "Goodbye!"}
-
+say("hi there") do
+  system 'clear'
+end

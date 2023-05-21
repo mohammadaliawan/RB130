@@ -24,40 +24,51 @@
 
 ## Plan for assessmennt Prep
 
-29-Apr to 4-May
+21-May to 23-May
 - Lesson 1: Blocks
-  - All assignments again
-  - Important terms and definitions
-  - Important concepts
-  - Make notes in own words
-  - Make questions at the end of every assignment
-  - Quiz again
-- RB130 Exercises
-  - [] Easy 1
-  - [] Easy 2
-  - [] Medium 1
-- Prepare Study Guide
+  - [] All assignments again
+  - [] Important terms and definitions
+  - [] Important concepts
+  - [] Make notes
+  - [] Make questions at the end of every assignment
+  - [] Quiz again
 
-5-May to 9-May
+24-May to 26-May
 - Lesson 2: Testing
   - All assignments again
   - Important terms and definitions
   - Important concepts
-  - Make notes in own words
+  - Make notes
   - Make questions at the end of every assignment
   - Quiz again
+
+27-May to 31-May
 - RB130 Exercises
+  - [] Easy 1
+  - [] Easy 2
+  - [] Medium 1
   - [] Easy Testing
   - [] Medium 2: Testing
-- Prepare Study Guide
+  - [] Advanced
 
 
+1-June to 2-June
 - Regex Book
+
+3-June to 6-June
+- prepare study guides for lesson 1 and 2
 - Ruby Challenges
   - [] Easy 1
-  - [] Medium 
+  - [] Medium
 
+7-June
+  - Lesson 3: Packaging Code
+  - Do all assignments
+
+8-June to 12-June
 - Assessment Preparation
+  - Look at discussion forums
   - SPOT wiki questions
   - Answer All questions prepared during 2nd Pass
   - Do Coding Challenges Again
+  - Do all exercises again
