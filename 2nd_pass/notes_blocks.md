@@ -106,7 +106,7 @@ echo_with_yield("Hello")
 ```
 
 
-### What is the sequence of code execution in the below code? Explain with line numbers. Also, differentiate between what consitutes the method implementation and what constitutes the method invocation.
+### What is the sequence of code execution in the below code? Explain with line numbers. Also, differentiate between what consitutes the method implementation and what constitutes the mLLethod invocation.
 
 ```ruby
 def say(words)
