@@ -274,5 +274,33 @@ We can also return `proc`s and lambda's from blocks and methods. Each `proc` obj
 
  - methods and blocks can return a chunk of code by returning a Proc or lambda.
 
+## Each, Times, Select, Reduce
 
+```ruby
+def times(int)
+  counter = 0
 
+  while counter < int
+    yield(counter)
+
+    counter += 1
+  end
+
+  int
+end
+```
+
+```ruby
+def each(ary)
+  index = 0
+
+  while index < ary.size
+    yield(ary[index])
+
+    index += 1
+  end
+
+  ary
+end
+```
+Writing a generic iterating method allows method callers to add additional implementation details at method invocation time by passing in a block. 
