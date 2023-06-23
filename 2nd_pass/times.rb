@@ -3,12 +3,12 @@ def times(int)
 
   while counter < int
     yield(counter)
+
     counter += 1
   end
 
   int
 end
 
-p times(5) { |num|
-  puts num
-}
+p times(4) { |num| puts num }
+

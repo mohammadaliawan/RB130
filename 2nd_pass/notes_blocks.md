@@ -6,7 +6,7 @@
 
 A closure is a general programming concept that allows us to save a chunk of code and execute it at a later time. 
 
-Its called a closure because it is said to bind its surrounding artifacts, like variable names and methods, and build an enclosure around everything so that they can be referenced when the closure is later executed.
+Its called a closure because it is said to bind its surrounding artifacts, like variable names and methods, and build an enclosure around everything so that they can be referenced when the closure is later executed.Closures retain a memory of their surrounding scope and can use and even update variables in that scope.
 
 A closure can be thought of as a method without an explicit name that can be passed around and executed at a later time.
 
@@ -107,6 +107,7 @@ end
 echo_with_yield("Hello")
 ```
 
+It doen't raise a `LocalJumpError` because the method definition of `echo_with_yield` uses the `Kernel#block_given?` method in an `if` conditional. The `block_given?` method return `true` only is a block is passed to a method upon invocation, otherwise it returns `false`. On line XX, as we didnt pass a block to the `echo_with_yield` method invocation, `block_given?` on line xx returns `false` and the `yield` keyword on line xx is not executed. Execution goes to line xx and the method returns string object referenced by `str`.
 
 ### What is the sequence of code execution in the below code? Explain with line numbers. Also, differentiate between what consitutes the method implementation and what constitutes the method invocation.
 
@@ -159,6 +160,20 @@ increment(3) do |value|
 end
 ```
 
+Execution starts at line xx where the `increment` method is invoked and the integer `3` and the `do...end` block are passed in as arguments. 
+
+Execution then goes to line xx where the `increment` method is defined. The method local variable `num` is assigned to the integer object `3` that was passed in as argument.
+
+Execution then goes to the next line in the method, where the `if` conditional is evaluated. The `block_given?` method returns `true` because a block was implicitly passed to the `increment` method upon invocation on line xx. Execution goes to line xx where the `yield` keyword is executed. `yield` executes the passed in block and passes to the block the return value of `num + 1` which is `4`.
+
+Execution then goes to the where the `do..end` block is defined i.e. line xx. The block local variable `value` is assigned to the integer object that was passed to the block i.e. `4`. Execution then goes to line xx where the `puts` method is invoked and the string `"Hello! incremented value is 4"`is output to the console.
+
+Execution then goes to line xx where the block definition ends. 
+
+Execution then goes back to line xx return `nil` to line xx. After which the `if` conditional ends.
+
+Execution then goes to line xx where `num + 1` is evaluated and `4` is returned. Since this is the last line in the method, `4` is returned by the `icrement` method invocation to line xx from where it was called.
+
 
 ### What is meant by arity? WHat kind of arity do blocks, procs, methods and lambda's have?
 
@@ -201,22 +216,20 @@ compare('hello') { |word| puts "hi" }
 ```
 On line 193, the output relies upon the object assigned to the local variable `after`. `after` is assigned to the return value of the block on line 192. When the `compare` method yields to the block passed in `{ |word| puts "hi"}`, `puts` outputs `hi` and then returns `nil` which is then assigned to `after` on line 192. Hence, on line 193, `nil` is interpolated into the string `After: ..`. Since `nil.to_s` returns an empty string, there is nothing after `After:`
 
-### What the different scenarios in which we can use blocks?
+### What are the different scenarios in which we can use blocks?
 
 1. When the method implementor wants to defer some method implementation code and allow the method user to decide at method invocation time how a particlular part of the method implementation should work.
 
 Passing in blocks to methods allows us as method users to refine the method implementation at method invocation time without modifying the method implementation for everyone else who uses the method.
 
-Sandwich code is a good example of deferring implementation to method invocation.
-
-2. Methods that need to perform some before and after actions.
+2. Methods that need to perform some before and after actions - Sandwich code
 
 When a method needs to time how long it takes to do something
 
 ```ruby
 def time_it
   puts "Before: #{before = Time.now}"
-  #something
+  yield
   puts "After: #{after = Time.now}"
 
   puts "It took #{after - before} seconds"
@@ -232,7 +245,7 @@ end
 
 An explicit block is a block that gets treated as a named object. It gets assigned to a method parameter and gets managed like any other object, it can be passed to other methods, invoked many times, reassigned.
 
-We can define a method to take an explicit block by defining a method parameter that starts with an `&`. The `&block` convert the block argument to a simple `proc` object. 
+We can define a method to take an explicit block by defining a method parameter that starts with an `&`. The `&block` converts the block argument to a simple `proc` object. 
 
 ```ruby
 def test(&block)
@@ -256,9 +269,27 @@ test { |prefix| puts prefix + "xyz"}
 
 ### What abilities of blocks make them so useful in Ruby?
 
-Blocks retain references to the variable and method names in their surrounding even when they are passed into other methods. So even in scopes where the said variables or methods are out of scope, the block can still reference them as it has references to these variables.
+Blocks retain references to the variable names in their surrounding even when they are passed into other methods. So even in scopes where the said variables or methods are out of scope, the block can still reference them as it retains references to these variables.
 
-We can also return `proc`s and lambda's from blocks and methods. Each `proc` object returned from each of the method calls will have its own independent copies of the variables in its binding. 
+For Example:
+
+```ruby
+def for_each_in(arr)
+  arr.each { |ele| yield ele }
+end
+
+array = [1,2,3,4,5]
+results = [0]
+
+for_each_in(array) do |element|
+  total = results[-1] + element
+  results.push(total)
+end
+
+p results
+```
+
+We can also return `proc`s and lambda's from blocks and methods. Each `proc` objects returned from each of the method calls of the same method will have its own independent and seperate copies of the variables in its binding. 
 
 ### Summary
 

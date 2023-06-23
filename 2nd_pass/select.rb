@@ -1,22 +1,16 @@
 def select(ary)
+  new_ary = []
   index = 0
-  result = []
 
-  # while index < ary.size
-  #   if yield(ary[index])
-  #     result.push(ary[index])
-  #   end
-
-  #   index += 1
-  # end
-
-  ary.each do |ele|
-    if yield(ele)
-      result.push(ele)
+  while index < ary.size
+    if yield(ary[index])
+      new_ary.push(ary[index])
     end
+    
+    index += 1
   end
-
-  result
+  
+  new_ary
 end
 
 array = [1, 2, 3, 4, 5]

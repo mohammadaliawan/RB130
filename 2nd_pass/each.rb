@@ -2,22 +2,19 @@ def each(ary)
   index = 0
 
   while index < ary.size
-    yield(ary[index])
+    yield ary[index]
+
     index += 1
   end
 
-  # loop do 
-  #   yield(ary[index])
-  #   index += 1
-
-  #   break unless index < ary.size
-  # end
-
-  # ary.each do |element|
-  #   yield(element)
-  # end
+  ary
 end
 
-each([1,2,3]) do |ele|
-  puts "#{ele} Hello"
+ary = [1,2,3]
+sum = 0
+
+x = each(ary) do |ele|
+  sum += ele
 end
+
+p sum, x
