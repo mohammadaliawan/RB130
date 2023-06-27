@@ -24,6 +24,8 @@ All these different types of closures can be passed around as a 'chunk of code' 
 
 A closures' binding is the set of variable and method names i.e its surrounding artifacts, that it retains references to when its passed around.
 
+A closure retains references to variables, constants and methods that were in scope at the time and location you created the closure. It binds some code with the in-scope items.
+
 ## Calling Methods With Blocks
 
 ### What are the three main components in the below code?
@@ -335,3 +337,76 @@ def each(ary)
 end
 ```
 Writing a generic iterating method allows method callers to add additional implementation details at method invocation time by passing in a block. 
+
+## TodoList Each
+
+### Why is it important not to access the internal state of TodoList objects and to use the public interface of the object?
+
+It is important because doing so could result in unwanted manipulation of TodoList objects. For example, using the `add` method we are enforcing the rule of "Only add `Todo` objects to the list". But by directly access the `@todos` array we are bypassing this rule. This is the idea behind **encapsulation**; we want to hide the implementation details from the users of the class, and not encourage users of the class to access the internal state.
+
+The entire goal of creating a class and encapsulating logic in a class is to hide implementation details and contain ripple effects when things change. Prefer to use the class's interface where possible.
+
+## Blocks and Variable Scope
+
+### Closures and Binding
+
+A block is how Ruby implements the idea of a closure. A closure is a general programming concept of a "chunk of code" that you can pass around and execute at some later time. 
+
+In order for this chunk of code to be executed later, it must understand the surrounding context from where it was defined. 
+
+Closures keep track of its surrounding context, and drags it around wherever the chunk of code is passed to. In Ruby, we call this its binding or surrounding context/=environment. A closure must keep track of its binding to have all the information it needs to be executed later. This includes local variables, method references, constants and other artifacts in your code.
+
+Note: Any variables that need to be accessed by the closure must be defined _before_ the closure is created, unless the variable is explicitly passed to the closure when it is called.
+
+## Quiz
+
+### Closures and Binding
+
+A closure lets you save a chunk of code and execute it later. You can pass closures around like objects.
+
+Closures are created by passing a block to a method, creating a `Proc` Object, or creating a lambda.
+
+### What do we mean when we say that a closure creates a binding?
+
+A closure retains access to variables, constants, and methods that were in scope at the time and location you created the closure. It binds some code with the in-scope items.
+
+A closure retains access to variables within its binding rather thatn the specific values of those variables at the time the closure was created; if the values of those variables changes, the closure access the new values.
+
+### Which of the following actions creates a closure in Ruby?
+
+- Passing a block to a method
+- Creating a `Proc` object
+- Creating a lamda
+
+### Which of the following situations is a good use case for writing a method that takes a block?
+
+- To let methods perform some kind of before and after actions
+- To defer some implementation code until method invocation
+
+### Can all Ruby methods take a block as an argument?
+
+Yes all Ruby methods can take an optional block as an implicit argument.
+
+### Write the method definition?
+
+```ruby
+def welcome(str)
+  puts str + ' ' + "#{block_given? ? yield : ''}"
+end
+
+welcome('Hello') { 'there' } # => Hello there
+welcome('Hey') { 'Joe' }   # => Hey Joe
+welcome('Hi!')                # => Hi! (there's a space after the !)
+```
+### What kind of arity do blocks have in Ruby?
+
+Blocks have a linient arity in Ruby which means that:
+- You can pass more arguments than the block parameter list shows
+- You can pass fewer arguments than the block parameter list shows. When mising block parameters are accessed in the block they will be `nil`.
+
+In other words, you can pass either fewer or more arguments than the block parameter list shows; the block ignores extra arguments and uses a `nil` value for omitted arguments.
+
+### What does `&block` do?
+
+- It lets us _explicitly_ pass in the block to the method
+- It converts the block to a `Proc` object and assigns it to a local variable.
