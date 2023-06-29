@@ -410,3 +410,52 @@ In other words, you can pass either fewer or more arguments than the block param
 
 - It lets us _explicitly_ pass in the block to the method
 - It converts the block to a `Proc` object and assigns it to a local variable.
+
+### Why does the below code raise an error?
+
+```ruby
+def call_chunk(code_chunk)
+  code_chunk.call
+end
+
+say_color = Proc.new {puts "The color is #{color}"}
+color = "blue"
+call_chunk(say_color)
+```
+The above code raises a `NameError` when the `Proc` object referenced by `code_chunk` is called because the `color` local variable is not part of the binding of this closure. 
+
+The local variable `color` is not part of the `Proc` object's binding since it isnt in scope when the `Proc` is created. 
+
+### How does Ruby evaluate the following code?
+
+```ruby
+"the cat in the hat".split.map(&:capitalize).join(' ') # => "The Cat In The Hat"
+```
+
+Ruby uses the `Symbol#to_proc` method to convert the symbol `:capitalize` to a `Proc` object and then converts this `Proc` object to a block.
+
+So the above code could also be written as:
+
+```ruby
+"the cat in the hat".split.map(&:capitalize.to_proc).join(' ')
+```
+
+### Which of the following names is part of the binding for the block body on line 12?
+
+```ruby
+ARRAY = [1, 2, 3]
+
+def abc
+  a = 3
+end
+
+def xyz(collection)
+  collection.map { |x| yield x }
+end
+
+xyz(ARRAY) do
+  # block body
+end
+```
+
+Awnser: The constant `ARRAY`, the methods `abc` and `xyz`.
