@@ -14,7 +14,12 @@ Regression: return to a previous and less advanced state, condition of way of be
 - RSpec has a syntax that reads more like natural english
 
 ### What is a Test Suite?
-
 It is the entire set of tests that accompanies your program or application. You can thik of this as ll the tests for a project
 
 ### What is a Test?
+A situation or context in which tests are run. A test can contain multiple assertions
+
+### What is an assertion?
+This is the actual verification step to confirm that the data returned by your program or application is indeed what is expected. You make one or more assertions within a test.
+
+### A
