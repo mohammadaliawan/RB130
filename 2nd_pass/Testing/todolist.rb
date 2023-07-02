@@ -64,7 +64,7 @@ class TodoList
   end
 
   def to_a
-    todos
+    todos.clone
   end
 
   def done?
@@ -161,24 +161,12 @@ class TodoList
       todo.undone
     end
   end
+
+  def ==(other_list)
+    index = 0
+    each do |todo|
+      todo == other_list.item_at(index)
+      index += 1
+    end
+  end
 end
-
-# given
-todo1 = Todo.new("Buy milk")
-todo2 = Todo.new("Clean room")
-todo3 = Todo.new("Go to gym")
-todo4 = Todo.new("Take care of Kids")
-list = TodoList.new("Today's Todos")
-
-# add
-list.add(todo1)
-list.add(todo2)
-list.add(todo3)
-list.add(todo4)
-
-list.mark_all_done
-puts list
-
-list.mark_all_undone
-puts list
-
