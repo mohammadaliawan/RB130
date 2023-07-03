@@ -24,10 +24,15 @@ Default gems: These gems are part of Ruby and you can always require them direct
 
 ### Differences between RSpec and Minitest
 
-- Minitest can do everything RSpec can.
 - There are two ways to use Minitest: using its DSL or using simple Ruby syntax. This allows a Ruby developer who doesnt know the DSL to quick get upto speed on how to use Minitest and start writing tests in Minitest using simple Ruby code.
 - RSpec is a Domain Specific Language for writing tests. RSpec has a syntax that reads more like natural english but is not considered simple or intuitive.You will have to spend some time to learn this DSL.
 - Minitest provides a simpler and more straightforward syntax.
+
+### Similarties between Minitest and RSpec?
+
+- Minitest can do everything RSpec can.
+- RSpec does not allow to use Ruby syntax for writing tests. Tests in RSpec are written in a DSL that reads like natural english
+- Minitest allows us to use Ruby syntax for writing tests as well as using it DSL.
 
 ### What is a Test Suite?
 It is the entire set of tests that accompanies your program or application. You can thik of this as all the tests for a project
@@ -37,8 +42,12 @@ Quiz: A group or set of situations or contexts within which verification checks 
 ### What is a Test?
 Describes a single situation or context in which tests are run. A test can contain multiple assertions
 
+Quiz: A situation or context in which verification checks are made.
+
 ### What is an assertion?
 This is the actual verification step to confirm that the data returned by your program or application is indeed what is expected. You make one or more assertions within a test.
+
+Quiz: A verification step to confirm that results returend by a program or application match the expected results.
 
 ## Using Minitest
 
@@ -121,10 +130,21 @@ Refute: prove to be false
 
 These are the 4 steps of writing tests:
 
-1. Set up the neccessary objects
-2. Execute code against the object we are testing
-3. Assert that the executed code did the right thing
+1. Set up the neccessary objects - Instantiate any objects that will be used int he tests.
+2. Execute code against the objects we are testing
+3. Assert that the executed code did the right thing - Affirm the results of code execution.
 4. Tear down and clean up any lingering artifacts
+
+Quiz: Including Set Up and Tear Down steps reduces redundancy in the test suite.
+The `setup` method runs before each test and the `teardown` method runs after each test.
+
+### How does `assert_equal` test for equality?
+
+It compares the objects using the `#==` method.
+
+### Can SEAT approach be used with Minitest as well as RSpec?
+
+Minitest and RSpec are testing tools, whereas SEAT is an approach to testing which you can use with either program.
 
 #### Set up
 
@@ -165,3 +185,104 @@ class EqualityTest < Minitest::Test
   end
 end
 ```    
+
+## Code Coverage
+
+### What is code coverage and how is it tested?
+
+Code coverage is a measure of how much of a program is tested by a test suite. It can be used as a metric to asses code quality.
+
+## Special Questions
+
+Why is using `assert_equal` instead of `assert` a better option to test that `name` returns `"Kitty"`in the below code?
+
+```ruby
+class Cat
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def miaow
+    "#{name} is miaowing."
+  end
+end
+
+class CatTest < MiniTest::Test
+  def setup
+    @kitty = Cat.new('Kitty')
+  end
+
+  def test_is_cat; end
+
+  def test_name; end
+
+  def test_miaow; end
+
+  def test_raises_error; end
+end
+```
+
+Using only `assert` in the above test would only tell us if the test passed or failed without any meaningful context.
+
+### How many arguments does `assert` take and what are they?
+
+`assert` can take two arguments, although the second argument is optional and defaults to `nil`. The first argument is the expression that you want to test. If this expression returns a truthy object the test passes, otherwise it fails. The second optional argument is a message that will be displayed if the test fails.
+
+### Why doez the order of the arguments to `assert_equal` matter?
+
+The first argument to `assert_equal` is the expected result or object and the second argument is supposed to be the actual obj or expression that returns the actual obj.
+
+If this order is reversed, the test might not fail but it could in other cases. If the test did fail the message given by Minitest which is the reason for failure would be misleading since the expected and actual values are reversed. It's good practice to provide the arguments in the correct order.
+
+### Why does the following assertion on line 248 still pass even though no exceptions as arguments are passed to the the `assert_raises` method?
+
+```ruby
+require 'minitest/autorun'
+
+class Cat
+  def initialize(arg)
+
+  end
+
+end
+
+
+class CatTest < Minitest::Test
+  def test_raise_error
+    assert_raises do
+      Cat.new(x)
+    end
+  end
+end
+```
+This assertion passes because we did not pass any exception type to `assert_raises`. If no exception class is passed to this method, the expected expection class defaults to `StandardError`. Line 249 raises a `NameError` which is the subclass of `StandardError`. Since no arguments were passed to `assert_raises`, by default it expects that a `StandardError` or subclass of it will be raised. Hence the test passes.
+
+### Looking at the details of a failed test, you see the following:
+
+```
+  1) Failure:
+CatTest#test_name [minitest_test.rb:21]:
+Expected: "Milo"
+  Actual: "Kitty"
+```
+
+Which of the following implementations of test_name would produce this result output and which one does not and why?
+
+
+A: assert_equal(@kitty.name, 'Milo')
+
+Although the above test will fail, but Minitest will report the reason for failure incorrectly. It will show that the expected value is "Kitty" and the actual value is "Milo". The reason for this is that the order in which we have passed the arguments to `assert_equal` are in reverse order. We need to pass "Milo" as the first argument so it becomes the expected value and pass `@kitty.name` as the second argument so the return value of this expression becomes the actual value.
+
+B: assert_equal('Milo', @kitty.name)
+
+This assertion will produce the above failure output.
+
+C: assert(@kitty.name == 'Milo')
+
+This test will also fail because `@kitty.name` will return the string `"Kitty"` which is not equal to `"Milo"`. But the output of this test failure will not be as shown above as `assert` passes if the object passed to it is truthy and fails if it is falsey. It cannot differentiate between the expected value and the actual value.
+
+D: refute_equal('Kitty', @kitty.name)
+
+This test will pass and will not produce the above output as `@kitty.name` will return `"Kitty"` which is equal to expected value `"Kitty"`. Hence this assertion will also not produce the required output.

@@ -42,12 +42,14 @@
 
   - [] Medium 1
   - [] Ruby Tools Book
+  - [] Study documentation for Assertion in Minitest
 
 4-July
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
   - [-] Ruby Tools Book
   - [-] Medium 1
+  - [ ] Code Coverage notes
 
   - [] Medium 2: Testing
 

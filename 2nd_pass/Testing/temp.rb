@@ -1,11 +1,14 @@
 require 'minitest/autorun'
 
-class EqualityTest < Minitest::Test
-  def test_value_equality
-    str1 = "hi there"
-    str2 = "hi there"
+class Cat
+  def initialize(arg)
+  end
+end
 
-    assert_equal(str1, str2)
-    assert_same(str1, str2)
+
+class CatTest < Minitest::Test
+  def test_raise_error
+    assert_equal(ArgumentError, Cat.new)
+    assert_instance_of(Cat, Cat.new("Kitty"))
   end
 end
