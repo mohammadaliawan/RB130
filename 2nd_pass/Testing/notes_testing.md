@@ -4,7 +4,11 @@
 
 Testing is done to prevent regression. We write tests so that when we make changes in our code, we dont have to manually verify everything still works.
 
-Regression: return to a previous and less advanced state, condition of way of behaving.
+Regression: return to a less advanced state, condition of way of behaving.
+
+Code regression means that a formerly working program does not behave as it is exepcted to after you make some changes to it.
+
+Quiz Awnser: primary reason for writing tests is regression testing. Regression tests check for bugs that occur in formerly working code after you make changes somewhere in the codebase. Using tests to identify these bugs means we dont have to verify that everything works manually after each change.
 
 ### What is Minitest?
 
@@ -27,6 +31,8 @@ Default gems: These gems are part of Ruby and you can always require them direct
 
 ### What is a Test Suite?
 It is the entire set of tests that accompanies your program or application. You can thik of this as all the tests for a project
+
+Quiz: A group or set of situations or contexts within which verification checks are made.
 
 ### What is a Test?
 Describes a single situation or context in which tests are run. A test can contain multiple assertions
