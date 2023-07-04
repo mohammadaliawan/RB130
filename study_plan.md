@@ -25,7 +25,7 @@
   - [X]  Important concepts
   - [X]  Make notes
   - [X]  Make questions at the end of every assignment
-
+  - [X] Quiz Lesson 2
 
 - [] RB130 Exercises
   - [X] Easy 1
@@ -33,8 +33,7 @@
 
 **3-July to 14-July**
 
-3-July
-  - [-] Quiz Lesson 2
+4-July
   - [-] Easy 2
   - [-] Easy Testing
   - [-] 3 small Problems
@@ -44,7 +43,7 @@
   - [] Ruby Tools Book
   - [] Study documentation for Assertion in Minitest
 
-4-July
+5-July
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
   - [-] Ruby Tools Book
@@ -53,7 +52,7 @@
 
   - [] Medium 2: Testing
 
-5-July
+6-July
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
   - [-] Medium 2: Testing
@@ -61,36 +60,36 @@
   - [] Lesson 3: Packaging Code
   - [] Regex Book
 
-6-July
+7-July
 - [-] Lesson 3: Packaging Code
 - [-] Regex Book
 - [-] 3 small Problems
 - [-] 5 SPOT Wiki problems
 - [-] 2 Easy Challenge
 
-7-July
+8-July
 - [-] 3 small Problems
 - [-] 10 SPOT Wiki problems
 - [-] 2 Easy Challenge
 - [-] RB 130 Easy 1
 
-8-July
+9-July
 - [-] 10 SPOT Wiki problems
 - [-] 3 Easy Challenges
 - [-] RB 130 Easy 2
 
-9-July
+10-July
 - [-] 10 SPOT Wiki problems
 - [-] 3 Easy Challenges
 - [-] RB 130 Easy testing
 
-10-July
+11-July
 - [-] 10 SPOT Wiki problems
 - [-] 1 Medium Challenge
 - [-] 2 Easy Challenges
 - [-] RB 130 Medium 1
 
-11-July
+12-July
 - [-] 10 SPOT Wiki problems
 - [-] 1 Medium Challenge
 - [-] 2 Easy Challenges
