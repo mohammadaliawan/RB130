@@ -35,7 +35,7 @@
 
 5-July
   - [X] Easy 2
-  - [-] Easy Testing
+  - [X] Easy Testing
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
 
