@@ -33,8 +33,8 @@
 
 **3-July to 14-July**
 
-4-July
-  - [-] Easy 2
+5-July
+  - [X] Easy 2
   - [-] Easy Testing
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
@@ -43,7 +43,7 @@
   - [] Ruby Tools Book
   - [] Study documentation for Assertion in Minitest
 
-5-July
+6-July
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
   - [-] Ruby Tools Book
@@ -52,7 +52,7 @@
 
   - [] Medium 2: Testing
 
-6-July
+7-July
   - [-] 3 small Problems
   - [-] 5 SPOT Wiki problems
   - [-] Medium 2: Testing
@@ -60,36 +60,36 @@
   - [] Lesson 3: Packaging Code
   - [] Regex Book
 
-7-July
+8-July
 - [-] Lesson 3: Packaging Code
 - [-] Regex Book
 - [-] 3 small Problems
 - [-] 5 SPOT Wiki problems
 - [-] 2 Easy Challenge
 
-8-July
+9-July
 - [-] 3 small Problems
 - [-] 10 SPOT Wiki problems
 - [-] 2 Easy Challenge
 - [-] RB 130 Easy 1
 
-9-July
+10-July
 - [-] 10 SPOT Wiki problems
 - [-] 3 Easy Challenges
 - [-] RB 130 Easy 2
 
-10-July
+11-July
 - [-] 10 SPOT Wiki problems
 - [-] 3 Easy Challenges
 - [-] RB 130 Easy testing
 
-11-July
+12-July
 - [-] 10 SPOT Wiki problems
 - [-] 1 Medium Challenge
 - [-] 2 Easy Challenges
 - [-] RB 130 Medium 1
 
-12-July
+131-July
 - [-] 10 SPOT Wiki problems
 - [-] 1 Medium Challenge
 - [-] 2 Easy Challenges
