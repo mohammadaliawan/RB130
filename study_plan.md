@@ -33,24 +33,14 @@
 
 **3-July to 14-July**
 
-5-July
+6-July
   - [X] Easy 2
   - [X] Easy Testing
-  - [-] 3 small Problems
-  - [-] 5 SPOT Wiki problems
-
-  - [] Medium 1
-  - [] Ruby Tools Book
-  - [] Study documentation for Assertion in Minitest
-
-6-July
-  - [-] 3 small Problems
-  - [-] 5 SPOT Wiki problems
-  - [-] Ruby Tools Book
-  - [-] Medium 1
-  - [ ] Code Coverage notes
-
-  - [] Medium 2: Testing
+  - [-] 6 small Problems
+  - [-] 10 SPOT Wiki problems
+  - [ ] Medium 1
+  - [ ] Ruby Tools Book
+  - [ ] Medium 2: Testing
 
 7-July
   - [-] 3 small Problems
