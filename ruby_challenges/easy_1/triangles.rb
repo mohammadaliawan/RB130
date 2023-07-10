@@ -11,67 +11,99 @@ Note: For a shape to be a triangle at all, all sides must be of length > 0,
 and the sum of the lengths of any two sides must be greater than the length of the third side.
 
 Requirements/Rules:
-
-- input: length of three sides of a triangle, integers
-- output: string, equilateral/isosceles/scalene
-
-- if the three lengths provided are equal then it is an equilateral triangle
-- if two sides have the same length, third is different, it is an isosceles triangle
-- if the three sides are different, it is a scalene triangle
-- Rules for Triangles: 
-  - all sides must be of length > 0
-  - sum of length of two sides > length of third side
+- equilateral - all three sides are same length
+- isoceles- exactly two sides of same length
+- scalene - all three sides of different length
+- To be a valid triangle:
+  - all sides must be greater than 0
+  - sum of lengths of any two sides must be greater than langth of the third side
 
 Examples/Testcases:
+Tests indicate that we need to a Triangle class.
 
+Instance methods required:
+- constructor method that takes 3 arguments
+  - need to store the sides as the Triangle object's state
+  - raises ArgumentError if any of the sides is 0
+  - raises ArgumentError if any of the sides is -tive
+  - raises ArgumentError if sum of any two sides is less than or equal to the third side
 
-Data Structures:
-classes:
-Triangle
+= kind: takes no arguments, returns a string
+  - 'equilateral' -> when all sides are equal
+  - 'isosceles' -> when two sides are equal
+                  - last two sides
+                  - first last sides
+                  - first two sides
+                  - exactly two sides, third side is not equal
+  - 'scalene' -> when no equal sides given in ascending order
+              -> when no equal sides given in descending order
+  - returns appropraite string even if sides are less than 1
 
-Collaborators:
-Triangle: array of three integers
+Datastructure:
+- sides stored as numbers - integers or floats
+- the numbers are stored in an array for easy reference
 
-Responsibilities:
-Triangle: 
-- is_a_triangle?
-  - returns true if
-    - all sides must be of length > 0
-      - question: does the sum of all combinations of two sides need to be greater the third side
-        - yes
-        - no
-    - sum of length of two sides > length of third side
-- equilateral?
-  - returns true if
-    -  if the three lengths provided are equal then it is an equilateral triangle
-- isosceles?
-    - returns true if
-      - if two sides have the same length, third is different, it is an isosceles triangle
-- scalene?
-    - returns true if
-      - if the three sides are different, it is a scalene triangle
-- type
-    - returns a string
-        - equilateral/isosceles/scalene
+- Algorithm:
 
-Algorithm:
-- is_a_triangle?
-High level:
-        - if all sides > 0 and if sum of two sides is greater than third side(all combinations)
-            - return true
-Details:
-- check if all sides are > 0
-- [1,2,3] -> [[1,2], 3], [[1, 3], 2], [[2, 3], 1]
+Constructor:
 
+input: three numbers integers or floats
 
-- equilateral?
-        - if all lengths are the same
-            - return true
-- isosceles?
-        - if any two sides are the same and the third is different
-          - return true
-- scalene?
-        - if all lengths are different
-          - return true
+- take three numbers as arguments
+- store the sides as part of the state of the object
+- if any side is less than or equal to 0
+    - raise ArgumentError
+- if sum of any two sides is less than or equal to third side
+    - raise ArgumentError
+
 
 =end
+
+class Triangle
+  def initialize(side1, side2, side3)
+    @side1 = side1
+    @side2 = side2
+    @side3 = side3
+
+    @sides = [@side1, @side2, @side3]
+
+    raise ArgumentError if any_side_zero?
+    raise ArgumentError if size_inequality?
+  end
+
+  def kind
+    if equilateral?
+      'equilateral'
+    elsif isosceles?
+      'isosceles'
+    else
+      'scalene'
+    end
+  end
+
+  private
+
+  def any_side_zero?
+    @sides.include?(0)
+  end
+
+  def size_inequality?
+    @sides[0..1].sum <= @sides[2] ||
+    @sides[1..2].sum <= @sides[0] ||
+    @sides[0] + @sides[2] <= @sides[1]
+  end
+
+  def equilateral?
+    @sides.uniq.size == 1
+  end
+
+  def isosceles?
+    @sides.uniq.size == 2
+  end
+
+  def scalene?
+    @sides.uniq.size == 3
+  end
+end
+
+tri = Triangle.new(2,5,4)

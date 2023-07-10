@@ -29,57 +29,54 @@
 
 - [] RB130 Exercises
   - [X] Easy 1
+  - [X] Easy 2
+  - [X] Easy Testing
   - [] Advanced
 
 **3-July to 14-July**
 
-6-July
-  - [X] Easy 2
-  - [X] Easy Testing
-  - [-] 6 small Problems
-  - [-] 10 SPOT Wiki problems
+10-July
+  - [-] 5 SPOT Wiki problems
+  - [ ] 2 Easy Challenges
   - [ ] Medium 1
   - [ ] Ruby Tools Book
-  - [ ] Medium 2: Testing
 
-7-July
-  - [-] 3 small Problems
+11-July
   - [-] 5 SPOT Wiki problems
+  - [ ] 2 Easy challenges
   - [-] Medium 2: Testing
+  - [ ] Lesson 3: Packaging Code
 
-  - [] Lesson 3: Packaging Code
-  - [] Regex Book
-
-8-July
+12-July
 - [-] Lesson 3: Packaging Code
 - [-] Regex Book
-- [-] 3 small Problems
 - [-] 5 SPOT Wiki problems
 - [-] 2 Easy Challenge
 
-9-July
-- [-] 3 small Problems
-- [-] 10 SPOT Wiki problems
+14-July
+- [-] Lesson 3: Packaging Code
+- [-] Regex Book
+- [-] 5 SPOT Wiki problems
 - [-] 2 Easy Challenge
+
+14-July
+- [-] 10 SPOT Wiki problems
+- [-] 2 Easy Challenges
 - [-] RB 130 Easy 1
 
-10-July
+15-July
 - [-] 10 SPOT Wiki problems
-- [-] 3 Easy Challenges
-- [-] RB 130 Easy 2
-
-11-July
-- [-] 10 SPOT Wiki problems
-- [-] 3 Easy Challenges
+- [-] 1 Medium Challenge
+- [-] RB 130 Easy 1
 - [-] RB 130 Easy testing
 
-12-July
+16-July
 - [-] 10 SPOT Wiki problems
 - [-] 1 Medium Challenge
 - [-] 2 Easy Challenges
 - [-] RB 130 Medium 1
 
-131-July
+17-July
 - [-] 10 SPOT Wiki problems
 - [-] 1 Medium Challenge
 - [-] 2 Easy Challenges

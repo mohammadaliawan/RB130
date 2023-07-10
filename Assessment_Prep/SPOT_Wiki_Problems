@@ -1,16 +1,109 @@
 # BLOCKS
 
-1, What are closures?
+1, What are closures? How does Ruby implement them?
+
+A closure is a chunk of code that can be passed around to methods and executed at a later time depending on how the method is implemented.
+A closure builds a kind of an enclosure around the variables and method names in its surrounding scope and carries it around wherever it is passed to. 
+This is known as the closure's binding. It retains references to variable and method names in its environment. This allows a closure to reference these variables 
+or methods when it is later executed.
+
+Ruby implements closures through blocks, lambdas and procs.
+
+Example:
+
+`[1,2,3].each {|num| puts num}` 
+
+In the above code, the chunk of code within the `{}` is a closure that is being passed to the `each` method invocation. Another way to create blocks is to use the `do..end` syntax.
+
+```ruby
+[1,2,3].each do |num|
+  puts num
+end
+```
+
+Closures can also be created using `proc` objects or `lambdas`.
+
+A `proc` object is created as shown below:
+
+`proc = Proc.new {|ele| "hello"}`
 
 2, What is binding?
-SPOT_Wiki_Problems
+
+Binding is the relationship that a closure has with variables, methods and constants in its surrounding scope when it was defined.
+A closure builds a kind of an enclosure around the variables, methods and constants in its surrounding scope and carries it around wherever it is passed to. 
+
+This is known as the closure's binding; the set of variables. methods and constants that were in scope when the closure was created. It retains references to variables, methods and constant names in its surrounding scope. This allows the closure to reference these artifacts when it is later executed even if the closure is called in a scope where these variables or methods would normally be out of scope. This is because of a closure's binding.
+
+For example:
+
+```ruby
+def a_method
+  yield
+end
+str = "Hello"
+
+a_method { str = "Bye"}
+
+puts str # Bye
+```
+
+In the above code, the block ` { str = "Bye"}` is being executed inside the method `a_method` when `yield` is invoked and `str` is not in scope inside this method. But when we see the output on line XX, we can see that `str` has been reassigned to `"Bye"`. This is because blocks retain memory of variables that are initialized before the block is created. That is why they can referene these variables and even reassign them.
+
 3, How does binding affect the scope of closures?
+
+Closures retain references to variables, methods and constant names in its surrounding scope when it was defined and carries this binding around wherever it is passed to. This allows the closure to reference these artifacts when it is later executed even if the closure is called in a scope where these variables or methods would normally be out of scope. This is because of a closure's binding.
+
+For example:
+
+```ruby
+def a_method
+  yield
+end
+str = "Hello"
+
+a_method { str = "Bye"}
+
+puts str # Bye
+```
+
+In the above code, the block ` { str = "Bye"}` is being executed inside the method `a_method` when `yield` is invoked and `str` is not in scope inside this method. But when we see the output on line XX, we can see that `str` has been reassigned to `"Bye"`. This because blocks retain memory of variables that are initialized before the block is created. That is why they can referene these variables and even reassign them.
 
 4, How do blocks work?
 
+Block are a type of closure that are created using the `{}` or `do..end` syntax. They are an unnamed chunks of code that can be passed to method invocations. The methods can then yield to these passed in blocks at which time the code within the blocks is executed. Blocks return the evaluated result of the last expression evaluated in the block i.e. object returned by the last line of code.
+
 5, When do we use blocks? (List the two reasons)
 
+Blocks are used when we want to delay or delegate some portion of a method implementation to method invocation time (to the method user). They can also be used when a method needs to do some before and after actions but the before and after what (sandwiched code) is delegated to the method user who specifies is during method invocation.
+
 6, Describe the two reasons we use blocks, use examples.
+
+- Delay some method implementation details to the method invocation time:
+
+For example the `Array#each` method:
+
+```ruby
+[1,2,3].each {|num| puts num}
+```
+
+In the above code, the `each` method is used to iterate over the elements in the array `[1,2,3]`, but what happens during each iteration is not defined within the implementation of the `each` method. This is left upto the method user to define when the method is invoked by passing in a chunk of code. This chunk of code the `{|num| puts num}` block defines that each element will be output to the console. So the implementor of the `each` method defines it in a generic way and leaves it upto to the method user to decide what to do with each element on each iteration.
+
+- When the method needs to do some before and after actions (sandwich code)
+
+```ruby
+def transform(str)
+  before = str.dup
+
+  after = yield(str)
+
+  {before => after}
+end
+
+p transform("Hello World") {|string| string.capitalize}
+
+```
+
+In the above code we have defined a method `transform` that returns a hash with the key as the string before transformation and value as the string after transformation but the transformation mechanism is not defined. The methods only responsibility is to store the initial value of the string (incase it is mutated) and return a hash storing the initial value and the final value after transformation.
 
 7, When can you pass a block to a method? Why?
 

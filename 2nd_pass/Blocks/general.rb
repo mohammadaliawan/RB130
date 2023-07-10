@@ -1,7 +1,17 @@
-def call_chunk(code_chunk)
-  code_chunk.call
+# def call_chunk(code_chunk)
+#   code_chunk.call
+# end
+# color = "blue"
+# say_color = Proc.new {puts "The color is #{color}"}
+# color = "green"
+# call_chunk(say_color)
+
+def transform(obj)
+  before = obj
+
+  after = yield(obj)
+
+  {before => after}
 end
 
-say_color = Proc.new {puts "The color is #{color}"}
-color = "blue"
-call_chunk(say_color)
+p transform("Hello World") {|string| string.capitalize}
