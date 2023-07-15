@@ -31,59 +31,117 @@
   - [X] Easy 1
   - [X] Easy 2
   - [X] Easy Testing
+  - [X] Medium 1
   - [] Advanced
 
-**3-July to 14-July**
-
-10-July
-  - [-] 5 SPOT Wiki problems
-  - [ ] 2 Easy Challenges
-  - [ ] Medium 1
-  - [ ] Ruby Tools Book
-
-11-July
-  - [-] 5 SPOT Wiki problems
-  - [ ] 2 Easy challenges
-  - [-] Medium 2: Testing
+- Remaining Tasks:
+  - [ ] SPOT Wiki Problems
+  - [ ] Easy Challenges 1st time
+  - [ ] Easy Challenges 2nd time
+  - [ ] Medium 2: Testing
   - [ ] Lesson 3: Packaging Code
+  - [ ] Ruby Tools Book
+  - [ ] Regex Book
+  - [ ] Study Guide Preparation
+  - [ ] Easy 1
+  - [ ] Easy 2
+  - [ ] Easy Testing
+  - [ ] Medium 1
+  - [ ] Medium 2: Testing
 
-12-July
-- [-] Lesson 3: Packaging Code
-- [-] Regex Book
-- [-] 5 SPOT Wiki problems
-- [-] 2 Easy Challenge
-
-14-July
-- [-] Lesson 3: Packaging Code
-- [-] Regex Book
-- [-] 5 SPOT Wiki problems
-- [-] 2 Easy Challenge
-
-14-July
-- [-] 10 SPOT Wiki problems
-- [-] 2 Easy Challenges
-- [-] RB 130 Easy 1
+- Mock Tests
 
 15-July
-- [-] 10 SPOT Wiki problems
-- [-] 1 Medium Challenge
-- [-] RB 130 Easy 1
-- [-] RB 130 Easy testing
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Medium 2: Testing - 2 hours
+- [ ] Lesson 3: Packaging Code - 1 hour
+- [ ] Study Guide - 1 hour
 
 16-July
-- [-] 10 SPOT Wiki problems
-- [-] 1 Medium Challenge
-- [-] 2 Easy Challenges
-- [-] RB 130 Medium 1
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Lesson 3: Packaging Code - 1 hour
+- [ ] Study Guide - 2 hour
+- [ ] Regex Book - 1 hour
 
 17-July
-- [-] 10 SPOT Wiki problems
-- [-] 1 Medium Challenge
-- [-] 2 Easy Challenges
-- [-] RB 130 Medium 2 Testing
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Lesson 3: Packaging Code - 1 hour
+- [ ] Study Guide - 1 hour
+- [ ] Regex Book - 1 hour
 
-- Assessment Preparation
-  - SPOT wiki questions
-  - Answer All questions prepared during 2nd Pass
-  - Do Coding Challenges Again
-  - Do all exercises again
+18-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Lesson 3: Packaging Code - 1 hour
+- [ ] Study Guide - 1 hour
+- [ ] Regex Book - 1 hour
+
+19-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Lesson 3: Packaging Code - 1 hour
+- [ ] Study Guide - 1 hour
+- [ ] Regex Book - 1 hour
+
+20-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Lesson 3: Packaging Code - 1 hour
+- [ ] Study Guide - 1 hour
+- [ ] Regex Book - 1 hour
+
+21-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Easy 1 - 1 hour
+- [ ] Study Guide - 1 hour
+
+22-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 1 Easy Challenge - 1 hour
+- [ ] Easy 2 - 1 hour
+- [ ] Study Guide - 1 hour
+
+
+23-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 2 Easy Challenge - 2 hour
+- [ ] Medium 1 - 1 hour
+- [ ] Study Guide - 1 hour
+
+24-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 2 Easy Challenge - 2 hour
+- [ ] Medium 2 - 1 hour
+- [ ] Study Guide - 1 hour
+
+
+25-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 2 Easy Challenge - 2 hour
+- [ ] Study Guide - 1 hour
+
+
+26-July
+- [-] 4 SPOT Wiki Problems - 1 hour
+- [ ] 2 Easy Challenge - 2 hour
+- [ ] 
+- [ ] Study Guide - 1 hour
+
+
+27-July
+- [-] 1 Medium Challenge - 2 hour
+- [ ] 1 Easy Challenge - 1 hour
+
+28-July
+
+- [ ] Mock Test
+
+29-July
+
+- [ ] Mock Test
+
+

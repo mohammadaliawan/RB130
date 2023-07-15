@@ -62,9 +62,29 @@ We avoid this error by using the `Kernel#block_given?` method in an `if` conditi
 # Write methods that use blocks and procs
 # Understand that methods and blocks can return chunks of code (closures)
 # Methods with an explicit block parameter
+
+We can define a method to take an explicit block as an argument. 
+
+An explicit block is one that gets assigned to a method local variable (defined as a method parameter) as an object. This allows us to pass it to other methods, reassign it and invoked it as many times as needed.
+
+We can define a method to take an explicit block, by defining it with a parameter that is prepended by the `&` character. The `&block` coverts a block argument to a simple `Proc` object.
+
+AN explicit block provides us with a way to refer to the block (a handle). The variable that references this `Proc` object can be passed to other methods.
+
+Ruby converts blocks passed in as explicit blocks to simple `Proc` objects.
+
 # Arguments and return values with blocks
 # When can you pass a block to a method
 # &:symbol
+
+## How does the the proc to block `&` operator work with arguments to methods?
+
+When the `&` operator is applied to an argument object to a method, ruby trys to convert that object to a block. If this object is a `Proc` object this conversion happens automatically.
+
+If, however, the argument object is not a proc, ruby trys to the call object's `to_proc` method first and convert it to a `Proc` object. If it is able to successfully convert the argument object to a proc then `&` converts that proc to a block.
+
+`&:to_s` creates a proc that invokes the `to_s` method on a passed object.
+
 # Arity of blocks and methods
 
 
