@@ -54,7 +54,7 @@
 15-July
 - [-] 4 SPOT Wiki Problems - 1 hour
 - [ ] 1 Easy Challenge - 1 hour
-- [ ] Medium 2: Testing - 2 hours
+- [X] Medium 2: Testing - 2 hours
 - [ ] Lesson 3: Packaging Code - 1 hour
 - [ ] Study Guide - 1 hour
 
