@@ -76,13 +76,9 @@ The block is an argument being passed to the method invocation.
 
 In the above example the `do..end` is actually being passed to to the `Array#each` method.
 
-## Passing arguments to blocks
+## Number of arguments to a method that takes a block
 
-We can even pass arguments to blocks by passing them to `yield`. Within the block this argument is assigned to a block local variable that is defined as a block parameter when the block is defined. 
-
-## Return value of blocks
-
-Just like methods, they have a return value which is the evaluated result of the last line of code executed in the block.This return value is returned by the `yield` keyword.
+Regardless of whether we are passing in a block to a method as argument or not, the number of positional arguments at method invocation time (that dont have a default value) needs to match the number of parameters defined for that method in its method definition.
 
 ## Methods that can take blocks. Why is it that sometimes the code in the block affects the return value of the method invocation, and sometimes not? How can we find out how a block affects a method's return value?
 
@@ -90,9 +86,9 @@ In Ruby, all methods can take an optional block as an implicit argument. How thi
 
 We need to study the method's documentation or play around with the method to find out how passing a block to the method effects the method's return value.
 
-## Number of arguments to a method that takes a block
+## Return value of blocks
 
-Regardless of whether we are passing in a block to a method as argument or not, the number of positional arguments (that dont have a default value) needs to match the number of parameter defined for that method in its method definition.
+Just like methods, they have a return value which is the evaluated result of the last line of code executed in the block.This return value is returned by the `yield` keyword.
 
 ## `LocalJumpError`
 
@@ -100,6 +96,9 @@ A `LocalJumpError` is raised when a method definition contains the `yield` keywo
 
 We avoid this error by using the `Kernel#block_given?` method in an `if` conditional. This method returns `true` when a block has been passed to a method upon invocation and `false` otherwise.
 
+## Passing arguments to blocks
+
+We can even pass arguments to blocks by passing them to `yield`. Within the block this argument is assigned to a block local variable that is defined as a block parameter when the block is defined. 
 
 
 
