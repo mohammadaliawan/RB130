@@ -2,10 +2,9 @@
 
 1, What are closures? How does Ruby implement them?
 
-A closure is a chunk of code that can be passed around to methods and executed at a later time depending on how the method is implemented.
-A closure builds a kind of an enclosure around the variables and method names in its surrounding scope and carries it around wherever it is passed to. 
-This is known as the closure's binding. It retains references to variable and method names in its environment. This allows a closure to reference these variables 
-or methods when it is later executed.
+A closure is a piece or chunk of code that can be saved and passed around to existing methods and executed at a later time i.e. later than when it is defined.
+
+A closure can also be thought of as an unnamed method that can be passed to other methods and executed at a later time.
 
 Ruby implements closures through blocks, lambdas and procs.
 
@@ -51,7 +50,7 @@ In the above code, the block ` { str = "Bye"}` is being executed inside the meth
 
 3, How does binding affect the scope of closures?
 
-Closures retain references to variables, methods and constant names in its surrounding scope when it was defined and carries this binding around wherever it is passed to. This allows the closure to reference these artifacts when it is later executed even if the closure is called in a scope where these variables or methods would normally be out of scope. This is because of a closure's binding.
+As a closure retains references to names of variables and methods in its surrounding context where it is defined (not where it is invoked), it can refer to these variables or even reassign them even if the block is being executed in a scope where those variables would normally be out of scope. This allows a closure to access variables, methods and constants not based on where it is called but based on where it was defined.
 
 For example:
 
@@ -66,7 +65,7 @@ a_method { str = "Bye"}
 puts str # Bye
 ```
 
-In the above code, the block ` { str = "Bye"}` is being executed inside the method `a_method` when `yield` is invoked and `str` is not in scope inside this method. But when we see the output on line XX, we can see that `str` has been reassigned to `"Bye"`. This because blocks retain memory of variables that are initialized before the block is created. That is why they can referene these variables and even reassign them.
+In the above code, the block ` { str = "Bye"}` is being executed inside the method `a_method` when `yield` is invoked and `str` is not in scope inside this method. But when we see the output on line XX, we can see that `str` has been reassigned to `"Bye"`. This is because blocks retain memory of variables that are initialized before the block is created. That is why they can referene these variables and even reassign them.
 
 4, How do blocks work?
 
