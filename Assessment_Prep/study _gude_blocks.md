@@ -94,13 +94,15 @@ Just like methods, they have a return value which is the evaluated result of the
 
 A `LocalJumpError` is raised when a method definition contains the `yield` keyword but no block is passed to it when the method is invoked.
 
-We avoid this error by using the `Kernel#block_given?` method in an `if` conditional. This method returns `true` when a block has been passed to a method upon invocation and `false` otherwise.
+We can avoid this error by using the `Kernel#block_given?` method in an `if` conditional. This method returns `true` when a block has been passed to a method upon invocation and `false` otherwise.
 
 ## Passing arguments to blocks
 
 We can even pass arguments to blocks by passing them to `yield`. Within the block this argument is assigned to a block local variable that is defined as a block parameter when the block is defined. 
 
+# Arity of blocks and methods
 
+## What is arity?
 
 # Blocks and variable scope
 # Write methods that use blocks and procs
@@ -129,6 +131,6 @@ If, however, the argument object is not a proc, ruby trys to the call object's `
 
 `&:to_s` creates a proc that invokes the `to_s` method on a passed object.
 
-# Arity of blocks and methods
+
 
 
