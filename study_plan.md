@@ -3,11 +3,28 @@
 ## Done upto now
 
 - Lesson 1: Blocks
-  - Quiz: Done
-  - All assignments done
+  - Read through Blocks notes
+  - make the todo list app
+  - do the quiz
+  - do the exercises
 - Lesson 2: Testing
-  - Quiz: Done
-  - All assignment done
+  - Read through the notes
+  - make the todolist tests
+  - do the quiz
+  - do the exercises
+- Read the regular expressions book
+- Do the Ruby Challenges
+- Do the Blocks exercises again. Make study guide 
+- Do the Testing exercises again. Make study guide 
+- Do the Ruby Challenges again. Make study guide 
+- Do the spot practice questions
+- Do one mock test
+- Read the Ruby core tools book
+- Start Subscription
+- Do lesson 3
+- Make study guide for lesson 3
+- Take the Test
+
 
 ## Plan for assessmennt Prep
 
