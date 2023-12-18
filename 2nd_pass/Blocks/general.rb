@@ -1,6 +1,13 @@
-name = "John Doe"
+def test2(block)
+  puts "hello"
+  block.call
+  puts "good-bye"
+end
 
-loop {
-  puts self.name # "John Doe"
-  break
-}
+def test(&block)
+  puts "1"
+  test2(block)
+  puts "2"
+end
+
+test { |prefix| puts "xyz" }

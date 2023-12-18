@@ -10,7 +10,9 @@ Its called a closure because it is said to bind its surrounding artifacts, like 
 
 A closure can be thought of as a method without an explicit name that can be passed around and executed at a later time.
 
-Closures are so useful because they can be passed around into existing methods
+Closures are so useful because they can be passed around into existing methods.
+
+This "chunk of code" retains references to its surrounding artifacts -- its binding.
 
 ### How are closures implemented in Ruby? Three ways?
 
@@ -22,9 +24,9 @@ All these different types of closures can be passed around as a 'chunk of code' 
 
 ### What is meant by binding of a closure?
 
-A closures' binding is the set of variable and method names i.e its surrounding artifacts, that it retains references to when its passed around.
+A closures' binding is the set of variable and method names i.e its surrounding artifacts, that it retains references to when its being passed around.
 
-A closure retains references to variables, constants and methods that were in scope at the time and location you created the closure. It binds some code with the in-scope items.
+A closure retains references to variable, constant and method names that were in scope at the location where the closure was first defined. It binds some code with the in-scope items.
 
 ## Calling Methods With Blocks
 
@@ -52,7 +54,9 @@ The block is an argument being passed to the method invocation.
 
 In the above example the `do..end` is actually being passed to to the `Array#each` method.
 
-### Why is it that sometimes the code in the block affects the return value, and sometimes not? How can we find out how a block affects a method's return value?
+### Why is it that sometimes the code in the block affects the return value of a method invocation, and sometimes not? How can we find out how a block affects a method's return value?
+
+Whether or not the code in the block effects the return value of the method depends on the method implementation. If the method implementation executes the block and uses the block's return value in some way, then the method's return value would be effected by the code in the block. If, however, the method implementation ignores the block completely, the method's return value will not be affected .
 
 The answer lies in how the method is implemented. The code in the block is not the method implementation.
 It has nothing to do with the method implementation. The entire block is passed to the method as an argument just like any other argument. It is upto the method implementation to decide what to do with the block, execute it or ignore it.
@@ -92,7 +96,7 @@ The above code raises an `ArgumentError` because the expected number of argument
 
 ### When is the `LocalJumpError` raised?
 
-When a method is invoked that contains the `yield` keyword for yielding to the block but no block is passed upon method invocation.
+When a method is invoked that contains the `yield` keyword for yielding to a block but no block is passed upon method invocation.
 
 ### How can we define a method that does not raise an error whether a block is passed to it or not?
 
@@ -109,7 +113,7 @@ end
 echo_with_yield("Hello")
 ```
 
-It doen't raise a `LocalJumpError` because the method definition of `echo_with_yield` uses the `Kernel#block_given?` method in an `if` conditional. The `block_given?` method return `true` only is a block is passed to a method upon invocation, otherwise it returns `false`. On line XX, as we didnt pass a block to the `echo_with_yield` method invocation, `block_given?` on line xx returns `false` and the `yield` keyword on line xx is not executed. Execution goes to line xx and the method returns string object referenced by `str`.
+It doen't raise a `LocalJumpError` because the method definition of `echo_with_yield` uses the `Kernel#block_given?` method in an `if` conditional. The `block_given?` method return `true` only if a block is passed to a method upon invocation, otherwise it returns `false`. On line XX, as we didnt pass a block to the `echo_with_yield` method invocation, `block_given?` on line xx returns `false` and the `yield` keyword on line xx is not executed. Execution goes to line xx and the method returns string object referenced by `str`.
 
 ### What is the sequence of code execution in the below code? Explain with line numbers. Also, differentiate between what consitutes the method implementation and what constitutes the method invocation.
 
@@ -247,7 +251,7 @@ end
 
 An explicit block is a block that gets treated as a named object. It gets assigned to a method parameter and gets managed like any other object, it can be passed to other methods, invoked many times, reassigned.
 
-We can define a method to take an explicit block by defining a method parameter that starts with an `&`. The `&block` converts the block argument to a simple `proc` object. 
+We can define a method to take an explicit block by defining a method parameter that starts with an `&`. The `&block` is a special parameter that converts the block argument to a simple `Proc` object. 
 
 ```ruby
 def test(&block)
