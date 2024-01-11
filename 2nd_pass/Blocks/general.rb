@@ -1,13 +1,15 @@
-def test2(block)
-  puts "hello"
-  block.call
-  puts "good-bye"
+def for_each_in(arr)
+  arr.each do |number|
+    yield number
+  end
 end
 
-def test(&block)
-  puts "1"
-  test2(block)
-  puts "2"
+arr = [1,2,3,4]
+results = [0]
+
+for_each_in(arr) do |number|
+  total = results[-1] + number
+  results << total
 end
 
-test { |prefix| puts "xyz" }
+p results

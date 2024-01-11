@@ -28,6 +28,8 @@ A closures' binding is the set of variable and method names i.e its surrounding 
 
 A closure retains references to variable, constant and method names that were in scope at the location where the closure was first defined. It binds some code with the in-scope items.
 
+Closure retains a memory of their surrounding scope and can use and even update variables in that scope.
+
 ## Calling Methods With Blocks
 
 ### What are the three main components in the below code?
@@ -251,7 +253,10 @@ end
 
 An explicit block is a block that gets treated as a named object. It gets assigned to a method parameter and gets managed like any other object, it can be passed to other methods, invoked many times, reassigned.
 
-We can define a method to take an explicit block by defining a method parameter that starts with an `&`. The `&block` is a special parameter that converts the block argument to a simple `Proc` object. 
+We can define a method to take an explicit block by defining a method parameter that starts with an `&`. The `&block` is a special parameter that converts the block argument to a simple `Proc` object.
+
+**Ruby converts blocks passed in as explicit blocks to a simple `Proc` object**
+
 
 ```ruby
 def test(&block)
@@ -351,7 +356,7 @@ It is important because doing so could result in unwanted manipulation of TodoLi
 The entire goal of creating a class and encapsulating logic in a class is to hide implementation details and contain ripple effects when things change. Prefer to use the class's interface where possible.
 
 ## Blocks and Variable Scope
-
+ 
 ### Closures and Binding
 
 A block is how Ruby implements the idea of a closure. A closure is a general programming concept of a "chunk of code" that you can pass around and execute at some later time. 
