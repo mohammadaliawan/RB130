@@ -1,20 +1,14 @@
-def test(&block)
-  puts "1"
-  test2(block)
-  puts "2"
+def sequence
+  counter = 0
+  Proc.new { counter += 1}
 end
 
-def test2(block)
-  puts "3"
-  block.call
-  puts "4"
-end
+s1 = sequence
+p s1.call
+p s1.call
+p s1.call
 
-test{}
-
-# We are invoking the test method on line 13 and passing in a block as
-# an explicit argument. This block gets converted to a simple `proc` object
-# by the `&block` method parameter and is now referenced by the local variable
-# `block`. On line 3 the test2 method is invoked and the simple `proc` object referenced 
-# by `block` is passed in as an argument. 
-
+s2 = sequence
+p s2.call
+p s1.call
+p s2.call

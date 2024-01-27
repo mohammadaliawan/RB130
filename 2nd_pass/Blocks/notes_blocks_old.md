@@ -265,7 +265,6 @@ We can define a method to take an explicit block by defining a method parameter 
 
 **Ruby converts blocks passed in as explicit blocks to a simple `Proc` object**
 
-
 ```ruby
 def test(&block)
   block.call
@@ -307,6 +306,8 @@ end
 
 p results
 ```
+
+### Returning closures from methods
 
 We can also return `proc`s and lambda's from blocks and methods. Each `proc` objects returned from each of the method calls of the same method will have its own independent and seperate copies of the variables in its binding. 
 
