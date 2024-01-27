@@ -18,7 +18,12 @@ Arity of blocks and methods
 - can be saved
 - can be executed later
 - retains references to names in its surrounding environment or context
-- 
+
+A closure is a general term that is used in programming languages to represent a "chunk" or "piece" of code that can be saved, passed around and executed at a later time.
+
+The reason it is called a closure is because it binds its surrounding artifacts e.g names of variables and methods and it can then reference these vairables and methods later when it is executed.
+
+In other words, its a method without an explicit name that you can pass around and execute later.
 
 A closure is a piece or chunk of code that can be saved and passed around to existing methods and executed at a later time i.e. later than when it is defined. A closure retains references to variable and method names in its surrounding environment or context where it is defined. This allows the closure to reference these variables or methods later when it is executed.
 

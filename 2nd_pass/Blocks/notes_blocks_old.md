@@ -58,7 +58,7 @@ In the above example the `do..end` is actually being passed to to the `Array#eac
 
 ### Why is it that sometimes the code in the block affects the return value of a method invocation, and sometimes not? How can we find out how a block affects a method's return value?
 
-Whether or not the code in the block effects the return value of the method depends on the method implementation. If the method implementation executes the block and uses the block's return value in some way, then the method's return value would be effected by the code in the block. If, however, the method implementation ignores the block completely, the method's return value will not be affected .
+The block is passed into to method as an argument. And just like any other argument to a method, the method implementation decides what to do with this block of code. It could completely ignore it or execute it in a way that affects the return value of the method.So, whether the block of code affects the return value of the method or not, depends entirely on how the method is implemented. We need to study the method documentation or use the method to understand how passing in the block affects its behaviour.
 
 The answer lies in how the method is implemented. The code in the block is not the method implementation.
 It has nothing to do with the method implementation. The entire block is passed to the method as an argument just like any other argument. It is upto the method implementation to decide what to do with the block, execute it or ignore it.
@@ -79,6 +79,8 @@ p hello {puts "hi"}
 
 The above code does not raise an error because in Ruby every method can take an optional block as an implicit argument.
 
+In Ruby, all methods can take an optional block as an implicit argument.
+
 ### What keyword is used to call a block passed to a method?
 
 `yield`
@@ -94,7 +96,7 @@ end
 p echo_with_yield("Hello", "World") { puts "Goodbye"} # wrong number of arguments (given 2, expected 1) (ArgumentError)
 ```
 
-The above code raises an `ArgumentError` because the expected number of arguments as per the method definition of `echo_with yield` is 1 (defined by the `str` method parameter), but we are passing in two string arguments `"Hello"` and `"World"` on mehtod invocaition on line XX. As all methods take an optional block as an implicit argument, passing in the block does not raise this error. The number of arguments passed at method invocation should match the method definition, regardless of whether we are passing in a block or not.
+The above code raises an `ArgumentError` because the expected number of arguments as per the method definition of `echo_with yield` is 1 (defined by the `str` method parameter), but we are passing in two string arguments `"Hello"` and `"World"` on method invocaition on line XX. As all methods take an optional block as an implicit argument, passing in the block does not raise this error. The number of arguments passed at method invocation should match the method definition, regardless of whether we are passing in a block or not.
 
 ### When is the `LocalJumpError` raised?
 
@@ -115,7 +117,7 @@ end
 echo_with_yield("Hello")
 ```
 
-It doen't raise a `LocalJumpError` because the method definition of `echo_with_yield` uses the `Kernel#block_given?` method in an `if` conditional. The `block_given?` method return `true` only if a block is passed to a method upon invocation, otherwise it returns `false`. On line XX, as we didnt pass a block to the `echo_with_yield` method invocation, `block_given?` on line xx returns `false` and the `yield` keyword on line xx is not executed. Execution goes to line xx and the method returns string object referenced by `str`.
+It doen't raise a `LocalJumpError` because the method definition of `echo_with_yield` uses the `Kernel#block_given?` method in an `if` conditional. The `block_given?` method returns `true` only if a block is passed to a method upon invocation, otherwise it returns `false`. On line XX, as we didnt pass a block to the `echo_with_yield` method invocation, `block_given?` on line xx returns `false` and the `yield` keyword on line xx is not executed. Execution goes to line xx and the method returns string object referenced by `str`.
 
 ### What is the sequence of code execution in the below code? Explain with line numbers. Also, differentiate between what consitutes the method implementation and what constitutes the method invocation.
 
@@ -226,7 +228,9 @@ On line 193, the output relies upon the object assigned to the local variable `a
 
 ### What are the different scenarios in which we can use blocks?
 
-1. When the method implementor wants to defer some method implementation code and allow the method user to decide at method invocation time how a particlular part of the method implementation should work.
+- Building generic methods that defer some implementation details to method invocation time by allowing the method user to pass in a block at invocation time that refines the method implementation without permanently changing the method for everyone else.
+
+When the method implementor wants to defer some method implementation code and allow the method user to decide at method invocation time how a particlular part of the method implementation should work.
 
 Passing in blocks to methods allows us as method users to refine the method implementation at method invocation time without modifying the method implementation for everyone else who uses the method.
 
@@ -250,6 +254,10 @@ end
 ```
 
 ### What is an explicit block? How do you define a method to take an explicit block?
+
+**passing a method to a block explicitly**
+
+**Until now we have passed blocks to methods implicitly**
 
 An explicit block is a block that gets treated as a named object. It gets assigned to a method parameter and gets managed like any other object, it can be passed to other methods, invoked many times, reassigned.
 
