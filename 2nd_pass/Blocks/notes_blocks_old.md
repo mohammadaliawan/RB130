@@ -368,14 +368,66 @@ The entire goal of creating a class and encapsulating logic in a class is to hid
  
 ### Closures and Binding
 
+A block creates a new scope for local variables and only outer local variables are accessible to inner blocks. 
+
+Inner scope can access variables initialized in an outer scope but not vice versa.
+
 A block is how Ruby implements the idea of a closure. A closure is a general programming concept of a "chunk of code" that you can pass around and execute at some later time. 
 
-In order for this chunk of code to be executed later, it must understand the surrounding context from where it was defined. 
+In order for this chunk of code to be executed later, it must understand the surrounding context from where it ye as defined. 
 
 Closures keep track of its surrounding context, and drags it around wherever the chunk of code is passed to. In Ruby, we call this its binding or surrounding context/=environment. A closure must keep track of its binding to have all the information it needs to be executed later. This includes local variables, method references, constants and other artifacts in your code.
 
+Bindings and closures are at the core of variable scoping rules in Ruby.
+Inner scope can access outer scoped variables because those outer scoped artifacts are part of the closure's binding and a closure keeps track of artifacts in its binding. It carries it around with itself where it is passed to.
+
 Note: Any variables that need to be accessed by the closure must be defined _before_ the closure is created, unless the variable is explicitly passed to the closure when it is called.
 
+## Symbol to Proc
+
+Shortcut to call collection methods that take blocks:
+
+```ruby
+[1,2,3].each(&:upcase!)
+```
+
+`(&:upcase!)` is being converted to `{ |str| str.upcase!}`
+
+Here the `&` operator is being applied to an object (a symbol). This tells Ruby to convert the object to a block. If the object is a Proc then it easily gets converted to a block. But if it is not a Proc, we will first need to convert the object to a Proc using the `#to_proc` method. The `&` can then convert the Proc to a block.
+
+In the example above, this is what is happening:
+
+- `&:upcase!` tells Ruby to convert the Symbol `:upcase!` to a block
+- Since `:upcase!` is not a Proc, Ruby first calls `Symbol#to_proc`to convert the symbol to a Proc.
+- Now that it is a Proc, Ruby then converts this Proc to a block.
+
+Example:
+
+```ruby
+def my_method
+  yield(2)
+end
+
+my_method(&:to_s)
+```
+
+In the above example, we are invoking the `my_method` and passing in a block. The block is created from the argument `(&:to_s)` being passed to the method invocation. 
+
+`(&:to_s)` first tries to convert the symbol `:to_s` to a block. Since, it is not a Proc, Ruby will first convert the symbol `:to_s` to a Proc by calling the `Symbol#to_proc` method on `:to_s`. Once it is converted to a Proc, `&` converts that Proc to a block which is `{|n| n.to_s}`.
+
+So, the line `(&:to_s)` is doing 2 things in one step. Converting the symbol `:to_s` to a Proc object and then converting that Proc object to a block.
+
+The above example broken down into two steps:
+
+```ruby
+def my_method
+  yield(2)
+end
+
+a_proc = :to_s.to_proc
+my_method(&a_proc)
+
+```
 ## Quiz
 
 ### Closures and Binding
@@ -388,7 +440,7 @@ Closures are created by passing a block to a method, creating a `Proc` Object, o
 
 A closure retains access to variables, constants, and methods that were in scope at the time and location you created the closure. It binds some code with the in-scope items.
 
-A closure retains access to variables within its binding rather thatn the specific values of those variables at the time the closure was created; if the values of those variables changes, the closure access the new values.
+A closure retains access to variables within its binding rather thatn the specific values of those variables at the time the closure was created; if the values of those variables changes, the closure accesses the new values.
 
 ### Which of the following actions creates a closure in Ruby?
 
