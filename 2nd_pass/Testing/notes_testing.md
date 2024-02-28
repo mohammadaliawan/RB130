@@ -4,17 +4,17 @@
 
 Testing is done to prevent regression. We write tests so that when we make changes in our code, we dont have to manually verify everything still works.
 
-Regression: return to a less advanced state, condition of way of behaving.
+Regression: return to a less advanced state, condition or way of behaving.
 
-Code regression means that a formerly working program does not behave as it is exepcted to after you make some changes to it.
+Code regression means that a formerly working program does not behave as it is expected to after you make some changes to it.
 
 Quiz Awnser: primary reason for writing tests is regression testing. Regression tests check for bugs that occur in formerly working code after you make changes somewhere in the codebase. Using tests to identify these bugs means we dont have to verify that everything works manually after each change.
 
 ### What is Minitest?
 
-Minitest is an intuitive test library that comes installed with Ruby.
+Minitest is an intuitive testing library that comes installed with Ruby.
 
-Minitest is Ruby's default testing library and is part of Ruby's standard library. More specifically its a bundled gem.
+Minitest is Ruby's default testing library and is part of Ruby's standard library. More specifically its a bundled gem. It is shipped with default Ruby Installation.
 
 Bundled Gem: Minitest is shipped with the default Ruby Installation but is maintained outside the Ruby core team and can be uninstalled. 
 
@@ -24,9 +24,11 @@ Default gems: These gems are part of Ruby and you can always require them direct
 
 ### Differences between RSpec and Minitest
 
-- There are two ways to use Minitest: using its DSL or using simple Ruby syntax. This allows a Ruby developer who doesnt know the DSL to quick get upto speed on how to use Minitest and start writing tests in Minitest using simple Ruby code.
+- There are two ways to use Minitest: using its DSL or using simple Ruby syntax. This allows a Ruby developer who doesnt know the DSL to quickly get upto speed on how to use Minitest and start writing tests in Minitest using simple Ruby code.
+
 - RSpec is a Domain Specific Language for writing tests. RSpec has a syntax that reads more like natural english but is not considered simple or intuitive.You will have to spend some time to learn this DSL.
 - Minitest provides a simpler and more straightforward syntax.
+
 
 ### Similarties between Minitest and RSpec?
 
@@ -57,10 +59,14 @@ Quiz: A verification step to confirm that results returend by a program or appli
 2. Second, the test suite should be in a seperate `.rb` file with the name `project_name_test.rb`.
 3. In the `xxx_test.rb`file, we need to `require minitest/autorun`. This loads all the neccessary files from `minitest` gem we need to use Minitest.
 4. In the same file we need to tell ruby where the class we are testing is with `require_relative file_name`.
-5.  In the `project_name_test.rb` file, we create our test classes e.g.`ClassNameTest` class that subclass from the `MiniTest::Test` class. This will allow our test class to inherit all the neccessary methods for writing tests.
+5.  In the `project_name_test.rb` file, we create our test classes e.g.`ClassNameTest` class that subclass from the `Minitest::Test` class. This will allow our test class to inherit all the neccessary methods for writing tests.
 6. Next, we create tests by creating instance methods that start with `test_XXX`. This tells minitest that these methods are individual tests that need to be run.
 7. Within each instance method (test) we will need to make some assertions.These assertions are what we are trying to verify.
 8. Before making any assertions, we need to setup the appropriate data or objects to make assertions against.
+
+### `assert_equal`
+
+`assert_equal` is an inherited instance method. `assert_equal` takes two arguments, first is the expected value and second is the test or actual value.
 
 ### Reading Minitest output
 
@@ -115,7 +121,7 @@ end
 
 ### What are refutations?
 
-Refutations are the opposite of assertions. They refute rather than assert.:
+Refutations are the opposite of assertions. They refute rather than assert.
 Refutations all take the same arguments as their respective assertions except its doing a refutation. It refutation passes if the match returns false.
 Refute: prove to be false
 

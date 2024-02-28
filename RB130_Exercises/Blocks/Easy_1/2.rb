@@ -1,23 +1,15 @@
-# Optional Blocks
-
-# def compute(arg)
-#   if block_given?
-#     yield(arg)
-#   else
-#     "Does not compute."
-#   end
-# end
-
-# p compute(3) { |num| 5 + num } == 8
-# p compute("xyz") { |str| 'a' + str } == 'axyz'
-# p compute(4) == 'Does not compute.' 
-
-def some_method(&block)
-  if block_given?
-    block.call
-  else
-    "Else" 
-  end
+def compute(arg)
+  return 'Does not compute.' unless block_given?
+  yield(arg)
 end
 
-p some_method { "something else"}
+p compute(8) { |some_value| some_value + 10}
+p compute("a") { |some_letter| some_letter + "v"}
+p compute(10)
+
+# p compute { 5 + 3 } == 8
+# p compute { 'a' + 'b' } == 'ab'
+# p compute == 'Does not compute.'
+
+# The Kernel#block_given? method is used here to detect if a block was passed to the method
+# invocation. This method returns true if a block was passed and false otherwise.
