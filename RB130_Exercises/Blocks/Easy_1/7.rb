@@ -1,10 +1,7 @@
 def all?(ary)
   ary.each do |ele|
-    unless yield(ele)
-      return false
-    end
+    return false unless yield(ele)
   end
-
   true
 end
 

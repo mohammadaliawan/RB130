@@ -1,4 +1,5 @@
 - Testing terminology
 - Minitest vs. RSpec
 - SEAT approach
+- Testing Equality
 - Assertions

@@ -1,45 +1,46 @@
-=begin
-- write a method
-- given a positive integer
-- return a list of all divisors of given integer
-- returned list can be in any order
-- divisors == factors == all integers on which the given integer is divisible
-- must include 1 and the given integer
+# write a method
+# returns a list
+# of divisors of the argu
+# arg is a positive integer
+# return value can be in any sequence
 
-input: integer
-output: array of integers
+#input: Positive Integer
+#output: list of divisors, array
 
-DS:
-input: integer
-output: array of integers
-intermediate: range
+# if there is only one divisor return an array of one element
+# The number itself should also be part of the list
+# a divisor in this case is a num that divides the given int completely
+# 1 will be always be included in the list
 
-Algo:
-- create a new result array
-- interate from 1 to the given integer/2
-  - if given integer is divisible by current integer
-    - append current integer to the result array
-- append given integer to the result array
-- return result array
+# DS
+# input: integer
+# output: array
+# intermediate: range
 
-- is divisible
-    - remainder of dividing given integer by current int is zero
-    - use %
+1 -> [1]
+2 -> [1,2]
+3
+4
+5
 
-
-revised algo:
-
-- given a postive integer
-- 
-
-=end
-
-# def divisors(int)
-#   (1..(int/2)).to_a.select { |cur_num| (int % cur_num) == 0 }.push(int)
-# end
-
+# Algo
+# Given a positive integer
+# create a new list result containing the integer 1
+# if given integer/2 is greater than 1
+  # store given int in the list
+  # iterate from 2 to given int/2 if given int/2 is greater than or equal to 2
+  # if the current number divides the given integer completely or evenly
+  #   store the current number in the list
+  # otherwise, move onto the next consec integer
+# otherwise, return result list [1]
 def divisors(int)
-
+  counter = 1
+  result = [1]
+  result << int
+  loop do
+    counter += 1
+    break if counter > int
+  end 
 end
 
 p divisors(1) == [1]

@@ -2,49 +2,27 @@
 
 ## Plan for assessmennt Prep
 
-- [ ] Lesson 1: Blocks
-  - [X] All assignments again
-  - [X] Important terms and definitions
-  - [X] Important concepts
-  - [X] Make notes
-  - [ ] Quiz again
+- Prepare Study guide for RB130 Lesson 1 and 2
+- Complete Spot Wiki Problems
+- Go through Ruby Tools Book
+- Go through lesson 3
+- Complete RB 130 Exercises Again
+- Go through Regex Book
+- https://launchschool.com/gists/a15d1589 (Exercise Challenges FAQ)
+- https://launchschool.com/gists/c013accd (The General Approach for Problem Solving
+- Complete Ruby Challenges 
+- Launch School Guide to Ruby Written Assessments https://launchschool.com/gists/9bbb8844
+- Ruby Version
+- Rubocop Version and config file
+- Minitest
+- Do one mock test
 
-- [ ] Lesson 2: Testing
-  - [ ]  All assignments again
-  - [ ]  Important terms and definitions
-  - [ ]  Important concepts
-  - [ ]  Make notes
-  - [ ]  Make questions at the end of every assignment
-  - [ ]  Quiz Lesson 2
+| Section 1        | Section 2       | Section 3        |
 
-- [ ] Lesson 3: Packaging Code
-  - [ ]  All assignments
-  - [ ]  
-  - [ ]  
-  - [ ]  
-  - [ ]  
-  - [ ]  
+| Study Guide Prep | Ruby Tools Book | Problem Solving Approach Videos, FAQ |
 
-- [ ] RB130 Exercises
-  - [ ] Easy 1
-  - [ ] Easy 2
-  - [ ] Easy Testing
-  - [ ] Medium 1
-  - [ ] Medium 2: Testing
-  - [ ] Advanced
+| Exercises RB130  | Lesson 3        | Coding Challenges |
 
-- Remaining Tasks:
-  - [ ] SPOT Wiki Problems
-  - [ ] Easy Challenges 1st time
-  - [ ] Easy Challenges 2nd time
-  - [ ] Lesson 3: Packaging Code
-  - [ ] Ruby Tools Book
-  - [ ] Regex Book
-  - [ ] Study Guide Preparation
-  - [ ] Easy 1
-  - [ ] Easy 2
-  - [ ] Easy Testing
-  - [ ] Medium 1
-  - [ ] Medium 2: Testing
+| Guide for Written Assessment| Study Guide for Lesson 3 | Regex Book|
 
-- Mock Tests
+| SPOT Wiki Probs |

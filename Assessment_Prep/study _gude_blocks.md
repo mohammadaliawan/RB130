@@ -1,7 +1,9 @@
+For the topics shown below, you should be able to provide clear explanations, using code snippets as examples, and be able to identify these concepts within code snippets.
+
 Closures, binding, and scope
 How blocks work, and when we want to use them.
 Blocks and variable scope
-Write methods that use blocks and procs
+Create custom methods that use blocks and procs
 Understand that methods and blocks can return chunks of code (closures)
 Methods with an explicit block parameter
 Arguments and return values with blocks
@@ -103,7 +105,7 @@ We can avoid this error by using the `Kernel#block_given?` method in an `if` con
 
 ## Passing arguments to blocks
 
-We can even pass arguments to blocks by passing them to `yield`. Within the block this argument is assigned to a block local variable that is defined as a block parameter when the block is defined. 
+We can pass arguments to blocks by passing them to `yield`. Within the block this argument is assigned to a block local variable that is defined as a block parameter when the block is defined. 
 
 # Arity of blocks and methods
 

@@ -1,27 +1,20 @@
-# def any?(ary, &block)
-#   ary.each do |ele|
-#     return block
-#   end
-# end
-
-# def none?(ary, &block)
-#   return false if any?(ary, &block)
-#   true
-# end
-
-
-
-# p any?([1, 3, 5, 6]) {"SOmething"}
-
-# def somemethod(x: 1)
-
-
-# end
-
-# somemethod(x: 2)
-
-def somemethod(&block)
-  p block.call 2
+def any?(ary)
+  ary.each do |ele|
+    if yield(ele)
+      return true
+    end
+  end
+  false
 end
 
-somemethod(&:to_s)
+def none?(ary, &block)
+  !any?(ary, &block)
+end
+
+p none?([1, 3, 5, 6]) { |value| value.even? } == false
+p none?([1, 3, 5, 7]) { |value| value.even? } == true
+p none?([2, 4, 6, 8]) { |value| value.odd? } == true
+p none?([1, 3, 5, 7]) { |value| value % 5 == 0 } == false
+p none?([1, 3, 5, 7]) { |value| true } == false
+p none?([1, 3, 5, 7]) { |value| false } == true
+p none?([]) { |value| true } == true

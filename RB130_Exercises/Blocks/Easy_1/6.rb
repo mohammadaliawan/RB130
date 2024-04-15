@@ -4,7 +4,6 @@ def any?(ary)
       return true
     end
   end
-
   false
 end
 
