@@ -17,19 +17,15 @@ Arity of blocks and methods
 ## What are closures?
 
 - piece of code
-- can be saved
+- can be passed around
 - can be executed later
-- retains references to names in its surrounding environment or context
+- retains references to its surrounding artifacts (e.g variables, methods, constants) known as its binding.
 
-A closure is a general term that is used in programming languages to represent a "chunk" or "piece" of code that can be saved, passed around and executed at a later time.
+A closure is a general term that is used in programming languages to describe a "chunk" or "piece" of code that can be passed around and executed at a later time. These "chunks of code" are able to keep track of artifacts in their surrounding context e.g variable names, methods and constant, any thing it needs to be executed later. This surrounding environment or context of the closure is known as its binding.
 
-The reason it is called a closure is because it binds its surrounding artifacts e.g names of variables and methods and it can then reference these vairables and methods later when it is executed.
+A closure retains references to variable and method names in its surrounding environment or context where it is defined. This allows the closure to reference these variables or methods later when it is executed.
 
 In other words, its a method without an explicit name that you can pass around and execute later.
-
-A closure is a piece or chunk of code that can be saved and passed around to existing methods and executed at a later time i.e. later than when it is defined. A closure retains references to variable and method names in its surrounding environment or context where it is defined. This allows the closure to reference these variables or methods later when it is executed.
-
-A closure can also be thought of as an unnamed method that can be passed to other methods and executed at a later time.
 
 ## How does Ruby implement Closures?
 
@@ -40,7 +36,6 @@ Ruby implements closures in three ways:
 - Blocks
 
 All of these closure types can be passed into methods and executed at a later time.
-
 
 ## What is a closure's binding?
 
@@ -73,6 +68,13 @@ In the above code, the block `{ str = "Bye"}` is being executed inside the metho
 
 # How blocks work, and when we want to use them.
 
+__How to create blocks
+How to pass blocks to methods
+How to invoke blocks
+How to pass arguments to blocks
+return value of blocks
+when we want to use blocks__
+
 ## What are blocks?
 
 Blocks are a type of closure in Ruby and are created using either the `{...}` syntax or the `do..end` syntax. They are unnamed pieces of code that can be passed to method calls as arguments. The method implementation then decides what to do with this block. It can execute the block by yielding to it with the keyword `yield` or it can totally ignore the block.
@@ -80,6 +82,12 @@ Blocks are a type of closure in Ruby and are created using either the `{...}` sy
 ## What is the relationship of a block to the method invocation?
 
 The block is an argument being passed to the method invocation.
+
+```ruby
+[1,2,3].each do |num|
+  puts num
+end
+```
 
 In the above example the `do..end` is actually being passed to to the `Array#each` method.
 
@@ -107,9 +115,48 @@ We can avoid this error by using the `Kernel#block_given?` method in an `if` con
 
 We can pass arguments to blocks by passing them to `yield`. Within the block this argument is assigned to a block local variable that is defined as a block parameter when the block is defined. 
 
-# Arity of blocks and methods
+## Arity of blocks and methods
 
-## What is arity?
+### What is arity?
+
+The rule regarding required number of arguments that need to be passed to a method, block, proc or lamda is known as its arity. 
+
+### Blocks and Procs arity
+
+In Ruby, blocks and `proc`s have a **lenient** arity which is why blocks or `Proc` objects don't raise an error if you dont pass enough or pass more arguments than what are expected.
+
+If more arguments are passed to the block or `Proc` object than are defined by the number of block or `Proc` parameters, then the extra arguments are ignored.
+
+If less arguments are passed to the block or `Proc` object than are defined by the number of block or `Proc` object parameters, the extra block/ Proc local variables are assigned to nil.
+
+### Methods and Lamdas arity
+
+Methods and Lambda's have a strict arity. Methods and Lambda's must be passed the exact number of arguments as defined by the method/lamda parameters. 
+
+If less or more arguments are passed to a method or lamda, Ruby raises an `ArgumentError`.
+
+## When do we want to use blocks in our code?
+
+There are two major use cases for blocks:
+
+1. Create a generic method whose implementation can be refined at method invocation time for a specific use case without modifying the method's implementation for everyone else. This allows us to defer some implementation details of the method to method invocation time. For example consider the below `each` method that can used to iterate through an array:
+
+```ruby
+def each(array)
+  indx = 0
+
+  if block_given?
+    while indx < array.size
+      yield(array[indx])
+
+      indx += 1
+    end
+  end
+
+  array
+end
+```
+The above method can be passed an array object and it will iterate through the array elements and pass each element to the block passed in to the method invocation. However, the method does not define what to do with each element on each iteration. That is left upto the method user to pass those implementation details at method invoation time inside a block. Once the iterations are complete, the method simply returns the array object that was passed in to the method.
 
 # Blocks and variable scope
 # Write methods that use blocks and procs

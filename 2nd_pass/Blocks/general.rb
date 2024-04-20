@@ -1,7 +1,8 @@
-def call_chunk(code_chunk)
-  code_chunk.call
+def a_method
+  yield
 end
+str = "Hello"
 
-say_color = Proc.new {puts "The color is #{color}"}
-color = "blue"
-call_chunk(say_color)
+a_method { str = "Bye"}
+
+puts str # Bye

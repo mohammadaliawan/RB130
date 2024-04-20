@@ -4,9 +4,9 @@
 
 ### What are closures? Why is it called a closure?
 
-A closure is a general programming concept that allows us to save a chunk of code and execute it at a later time. 
+A closure is a general programming concept that allows us to save a chunk of code and execute it at a later time.
 
-Its called a closure because it is said to bind its surrounding artifacts, like variable names and methods, and build an enclosure around everything so that they can be referenced when the closure is later executed.Closures retain a memory of their surrounding scope and can use and even update variables in that scope.
+Its called a closure because it is said to bind its surrounding artifacts, like variable names and methods, and build an enclosure around everything so that they can be referenced when the closure is later executed.**Closures retain a memory of their surrounding scope and can use and even update variables in that scope when they are executed even if the closure is called from somewhere else.**
 
 A closure can be thought of as a method without an explicit name that can be passed around and executed at a later time.
 
@@ -29,6 +29,14 @@ A closures' binding is the set of variable and method names i.e its surrounding 
 A closure retains references to variable, constant and method names that were in scope at the location where the closure was first defined. It binds some code with the in-scope items.
 
 Closure retains a memory of their surrounding scope and can use and even update variables in that scope.
+
+In order for this "chunk of code" to be executed later, it must understand the surrounding context from where it was defined.
+
+In Ruby, binding is the surrounding context or environment of a closure.
+
+A closure must keep track of its binding to have all the information it needs to be executed later. THis includes local variables, method references and constants, whatever it needs to exexute correctly.
+
+Any local variables that need to be accessed by a closure must be defined before the closure is created
 
 ## Calling Methods With Blocks
 
