@@ -1,8 +1,5 @@
-def a_method
-  yield
+def output(value)
+  puts yield(value)
 end
-str = "Hello"
 
-a_method { str = "Bye"}
-
-puts str # Bye
+output(55) { |int| int + 5 }  
