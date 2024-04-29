@@ -2,16 +2,21 @@
 
 ## Plan for assessmennt Prep
 
-- Prepare Study guide for RB130 Lesson 1 and 2
-- Complete Spot Wiki Problems
-- Go through Ruby Tools Book
-- Go through lesson 3
-- Complete RB 130 Exercises Again
+- Prepare Study guide for RB130 Lesson 1 and 2**
+- Complete RB 130 Exercises Again**
+- Complete Spot Wiki Problems**
+
+- Complete Ruby Challenges, learn gsub and basic regex
+
+- Go through Ruby Tools Book**
+- Go through lesson 3**
+
 - Go through Regex Book
 - https://launchschool.com/gists/a15d1589 (Exercise Challenges FAQ)
 - https://launchschool.com/gists/c013accd (The General Approach for Problem Solving
-- Complete Ruby Challenges 
+- Complete Ruby Challenges
 - Launch School Guide to Ruby Written Assessments https://launchschool.com/gists/9bbb8844
+
 - Ruby Version
 - Rubocop Version and config file
 - Minitest

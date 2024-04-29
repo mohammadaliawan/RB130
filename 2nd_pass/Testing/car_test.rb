@@ -12,6 +12,8 @@ class CarTest < Minitest::Test
     @car2.name = "Ali"
   end
 
+  def test
+
   def test_value_equality
     assert_equal(@car, @car2)
   end

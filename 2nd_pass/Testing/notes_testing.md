@@ -2,7 +2,7 @@
 
 ### Why do we write tests?
 
-Testing is done to prevent regression. We write tests so that when we make changes in our code, we dont have to manually verify everything still works.
+Testing is done to prevent regression. We write tests so that when we make changes in our code, we dont have to manually verify everything still works.1
 
 Regression: return to a less advanced state, condition or way of behaving.
 
@@ -28,7 +28,6 @@ Default gems: These gems are part of Ruby and you can always require them direct
 
 - RSpec is a Domain Specific Language for writing tests. RSpec has a syntax that reads more like natural english but is not considered simple or intuitive.You will have to spend some time to learn this DSL.
 - Minitest provides a simpler and more straightforward syntax.
-
 
 ### Similarties between Minitest and RSpec?
 

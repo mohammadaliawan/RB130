@@ -1,18 +1,18 @@
 require 'minitest/autorun'
-
-require_relative 'transaction.rb'
+require_relative 'transaction'
 require 'stringio'
 
 class TransactionTest < Minitest::Test
   def setup
-    @transaction = Transaction.new(10)
+    @trans = Transaction.new 50
   end
 
   def test_prompt_for_payment
-    input = StringIO.new("30\n")
+    # prompt for payment
+    # check if amount paid is set correctly it is greater than or equal to item cost which is 50
+    input = StringIO.new("60\n")
     output = StringIO.new
-
-    @transaction.prompt_for_payment(input: input, output: output)
-    assert_equal(30.0, @transaction.amount_paid)
+    @trans.prompt_for_payment(input: input, output: output)
+    assert_equal(60.0, @trans.amount_paid)
   end
 end
