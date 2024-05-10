@@ -1,5 +1,9 @@
-def output(value)
-  puts yield(value)
+def some_method(a_proc)
+  some_num = 5
+  a_proc.call(some_num)
 end
 
-output(55) { |int| int + 5 }  
+factor = 10
+add_factor = Proc.new { |num| num + factor}
+
+p some_method(add_factor)
