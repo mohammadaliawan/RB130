@@ -8,7 +8,7 @@
 
 ## What is testing and Why do we write tests?
 
-Testing is the process of writing and running tests for a codebase to check that it works as expected.The major reason for testing code is to check for regression in our codebase. 
+Testing is the process of writing and running tests for a codebase to check that it works as expected.The major reason for testing code is to check for regression in our codebase.
 
 Code regression means that a program, that was previously working as expected, stops behaving as expected after we make some changes to it. 
 
@@ -18,19 +18,19 @@ Testing with a test suite that checks each part of our program is very efficient
 
 ## Minitest
 
-Minitest is a testing library for the Ruby programming language. It is a bundled gem that comes installed with Ruby.
+Minitest is the default testing library for the Ruby programming language. It is a bundled gem that comes as part of Ruby Installation.
 
 ## Test Suite
 
-A test suite is the complete collection of tests that are written for a project's codebase.
+A test suite is the complete collection of tests that are written for a program or project's codebase. It consists of several verifications checks that test the codebase under different contexts or conditions.
 
 ## Test
 
-A test is an individual confirmation condition in a test suite. A test suite consists of several tests.
+A test is an individual context or condition within a larger collection of tests . For example, we may have a test that checks if a program responds as expexted if a bad input is provided.
 
 ## Assertions
 
-An assertion is the actual confirmation step that is run to check that the data returned by a program is as expected. A test consists of one or more assertions.
+An assertion is an individual step within a test that confirms if a particular part of the codebase works as expected. There is an expected result (the data that should be returned) and there is an actual result of running the code. Both are compared in an assertion to check if they match. If they do, the assertion passes and if not the assertion fails. A test may contain several assertions to check all the different return values in a particular context.
 
 ## What is unit testing?
 
@@ -40,7 +40,7 @@ Writing tests to test simple classes and methods within those classes to prevent
 
 RSpec and Minitest are both used for writing tests for Ruby Programs but Minitest is the default testing library for Ruby. Minitest is a bundled gem that comes installed with Ruby while RSpec does not.
 
-RSpec is a Domain Specific Language for writing tests tht read more like natural english. Minitest can be used both using a Domain Specific Language and Ruby Syntax. However, RSpec can only be used via its DSL.
+RSpec is a Domain Specific Language for writing tests that reads like natural english. Minitest can be used both using a Domain Specific Language and simple Ruby Syntax. However, RSpec can only be used via its DSL. Minitest is much simpler to get started with as it allows simple Ruby syntax.
 
 # Assertions
 

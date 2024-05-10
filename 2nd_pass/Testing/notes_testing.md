@@ -2,7 +2,7 @@
 
 ### Why do we write tests?
 
-Testing is done to prevent regression. We write tests so that when we make changes in our code, we dont have to manually verify everything still works.1
+Testing is done to prevent regression. We write tests so that when we make changes in our code, we dont have to manually verify everything still works.
 
 Regression: return to a less advanced state, condition or way of behaving.
 
