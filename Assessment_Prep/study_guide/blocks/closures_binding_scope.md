@@ -9,7 +9,7 @@
 
 A Closure is an idea found in many programming languages that describes a "pieces of code" that can be passed around to method invocations just like any other arguments and executed later when required.
 
-A key feature of closures that makes them immensely useful is that they are able to keep track of and access variables names, method names and constant names that exist in the surrounding context where it is defined or created. These surrounding variables/methods/constants names form what is known as the binding of a closure. A closures binding is what allows it to be executed later in a completely different scope and still be able to access the data it needs from its surrounding environment where it was created.
+A key feature of closures that makes them immensely useful is that they are able to keep track of and access variables names, method names and constant names that exist in the surrounding context where they are defined or created. These surrounding variables/methods/constants names form what is known as the binding of a closure. A closures binding is what allows it to be executed later in a completely different scope and still be able to access the data it needs from its surrounding environment where it was created.
 
 In Ruby, closures are created in three ways: using blocks, `Proc` objects or Lambda's.
 
@@ -18,18 +18,19 @@ In Ruby, closures are created in three ways: using blocks, `Proc` objects or Lam
 Blocks are pieces of code that are delimited by `{}` or `do..end` and passed to method invocations as arguments except they are not objects. It is up to the method implementation to then either invoke the block or to ignore it. Below is an example of a block being passed to the `Array#each` method:
 
 ```ruby
+some_num = 10
 [1,2,3].each do |num|
-  puts num
+  puts some_num + num
 end
 
-[1,2,3].each { |num| puts num}
+[1,2,3].each { |num| puts some_num + num}
 ```
 
-In the above example, the `do..end` chunk of code from line x to x and `{ |num| puts num}` on line x are blocks. These blocks are being passed to the `each` method invocation as arguments.
+In the above example, the `do..end` chunk of code from line x to x and `{ |num| puts num}` on line x are blocks. These blocks are being passed to the `each` method invocation as arguments. The local variable `some_num` is part of the binding of both blocks.
 
 ### Procs
 
-`Proc` objects are instantiated from the `Proc` class. They are also a type of closure similar to blocks except `Proc`s are objects and blocks are not. `Proc`s are created by using the `Proc::new` method and passing it a block. Since they are objects, `Proc`s can be assigned to local variables. This `Proc` object can now be referenced by accessing this local variable, can be called using this local variable, passed to method invocations as arguments or even passed to other blocks or `Proc`s as arguments.
+`Proc` objects are instantiated from the `Proc` class. They are also a type of closure similar to blocks except `Proc`s are objects and blocks are not. `Proc`s are created by using the `Proc::new` method and passing it a block. Since they are objects, `Proc`s can be assigned to local variables. This `Proc` object can now be referenced by accessing this local variable, can be called using this local variable using `Proc#call` method, passed to method invocations as arguments or even passed to other blocks or `Proc`s as arguments.
 
 ```ruby
 def some_method(a_proc)
